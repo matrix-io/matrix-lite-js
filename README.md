@@ -2,8 +2,7 @@
  MATRIX Lite JS is a Node.js wrapper that allows users to interface with MATRIX HAL, without having to code in C++.
 
 # Current Roadmap
-[ ] - Led implementation
-
+- [ ] Led implementation
 # Development Setup
 Ensure you have a MATRIX device that's flashed with [Raspbian Stretch](https://www.raspberrypi.org/blog/raspbian-stretch/).
 
