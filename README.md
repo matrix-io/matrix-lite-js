@@ -3,25 +3,38 @@
 
 # Current Roadmap
 - [ ] Led implementation
-# Development Setup
-Ensure you have a MATRIX device that's flashed with [Raspbian Stretch](https://www.raspberrypi.org/blog/raspbian-stretch/).
+
+# Raspberry Pi Dependencies
+Ensure you have a Raspberry Pi, attached with a MATRIX device, that's flashed with [Raspbian Stretch](https://www.raspberrypi.org/blog/raspbian-stretch/).
 
 ## 1. Install MATRIX HAL
-Add the MATRIX repository and key.
+**Add the MATRIX repository and key.**
 ```bash
 curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
 echo "deb https://apt.matrix.one/raspbian $(lsb_release -sc) main" |sudo tee /etc/apt/sources.list.d/matrixlabs.list
 ```
-Update your repository and packages.
+**Update your repository and packages.**
 ```bash
 sudo apt-get update
 sudo apt-get upgrade
 ```
-Install the the MATRIX HAL packages.
+**Install the the MATRIX HAL packages & Git.**
 ```
-sudo apt-get install matrixio-creator-init libmatrixio-creator-hal libmatrixio-creator-hal-dev
+sudo apt-get install matrixio-creator-init libmatrixio-creator-hal libmatrixio-creator-hal-dev git
 ```
-Restart your device.
+**Restart your device.**
 ```bash
 reboot
+```
+
+## 2. Install Node.js
+Downloads and installs the latest version of Node.js, using nvm
+```bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+. ~/.bashrc
+nvm install node
+```
+Use the following command to verify that Node.js was properly installed.
+```
+node -v
 ```
