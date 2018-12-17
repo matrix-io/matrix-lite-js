@@ -143,7 +143,7 @@ cmd_alink_thin = rm -f $@ && $(AR.$(TOOLSET)) crsT $@ $(filter %.o,$^)
 # special "figure out circular dependencies" flags around the entire
 # input list during linking.
 quiet_cmd_link = LINK($(TOOLSET)) $@
-cmd_link = $(LINK.$(TOOLSET)) $(GYP_LDFLAGS) $(LDFLAGS.$(TOOLSET)) -o $@ -Wl,--start-group $(LD_INPUTS) -Wl,--end-group $(LIBS)
+cmd_link = $(LINK.$(TOOLSET)) $(GYP_LDFLAGS) $(LDFLAGS.$(TOOLSET)) -o $@ -Wl,--start-group $(LD_INPUTS) $(LIBS) -Wl,--end-group
 
 # We support two kinds of shared objects (.so):
 # 1) shared_library, which is just bundling together many dependent libraries
@@ -308,8 +308,8 @@ ifeq ($(strip $(foreach prefix,$(NO_LOAD),\
 endif
 
 quiet_cmd_regen_makefile = ACTION Regenerating $@
-cmd_regen_makefile = cd $(srcdir); /home/pi/.nvm/versions/node/v8.6.0/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp_main.py -fmake --ignore-environment "--toplevel-dir=." -I/home/pi/halProjects/cppTest/build/config.gypi -I/home/pi/.nvm/versions/node/v8.6.0/lib/node_modules/npm/node_modules/node-gyp/addon.gypi -I/home/pi/.node-gyp/8.6.0/include/node/common.gypi "--depth=." "-Goutput_dir=." "--generator-output=build" "-Dlibrary=shared_library" "-Dvisibility=default" "-Dnode_root_dir=/home/pi/.node-gyp/8.6.0" "-Dnode_gyp_dir=/home/pi/.nvm/versions/node/v8.6.0/lib/node_modules/npm/node_modules/node-gyp" "-Dnode_lib_file=/home/pi/.node-gyp/8.6.0/<(target_arch)/node.lib" "-Dmodule_root_dir=/home/pi/halProjects/cppTest" "-Dnode_engine=v8" binding.gyp
-Makefile: $(srcdir)/../../.nvm/versions/node/v8.6.0/lib/node_modules/npm/node_modules/node-gyp/addon.gypi $(srcdir)/build/config.gypi $(srcdir)/binding.gyp $(srcdir)/../../.node-gyp/8.6.0/include/node/common.gypi
+cmd_regen_makefile = cd $(srcdir); /home/pi/.nvm/versions/node/v11.4.0/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp_main.py -fmake --ignore-environment "--toplevel-dir=." -I/home/pi/MATRIX-Lite-JS/build/config.gypi -I/home/pi/.nvm/versions/node/v11.4.0/lib/node_modules/npm/node_modules/node-gyp/addon.gypi -I/home/pi/.node-gyp/11.4.0/include/node/common.gypi "--depth=." "-Goutput_dir=." "--generator-output=build" "-Dlibrary=shared_library" "-Dvisibility=default" "-Dnode_root_dir=/home/pi/.node-gyp/11.4.0" "-Dnode_gyp_dir=/home/pi/.nvm/versions/node/v11.4.0/lib/node_modules/npm/node_modules/node-gyp" "-Dnode_lib_file=/home/pi/.node-gyp/11.4.0/<(target_arch)/node.lib" "-Dmodule_root_dir=/home/pi/MATRIX-Lite-JS" "-Dnode_engine=v8" binding.gyp
+Makefile: $(srcdir)/../.nvm/versions/node/v11.4.0/lib/node_modules/npm/node_modules/node-gyp/addon.gypi $(srcdir)/../.node-gyp/11.4.0/include/node/common.gypi $(srcdir)/build/config.gypi $(srcdir)/binding.gyp
 	$(call do_cmd,regen_makefile)
 
 # "all" is a concatenation of the "all" targets from all the included

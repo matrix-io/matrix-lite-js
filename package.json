@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "compile": "node-gyp rebuild",
-    "start": "node main.js"
+    "test": "node-gyp rebuild && node index.js",
+    "start": "node index.js"
   },
   "gypfile": true,
   "keywords": [],

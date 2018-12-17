@@ -1,15 +1,18 @@
 #include <nan.h>
 #include "matrix.h"
+#include "drivers/everloop.h"
 
-//int test = Rainbow();
-// NAN_METHOD(Rainbow);
+// Declare bus for MATRIX hardware communication
+matrix_hal::MatrixIOBus bus;
+// Initialize MATRIX bus
+bool busReady = bus.Init();
 
 // NAN_METHOD is a Nan macro enabling convenient way of creating native node functions.
-// It takes a method's name as a param. By C++ convention, I used the Capital cased name.
 NAN_METHOD(Hello) {
     // Rainbow();
     // Create an instance of V8's String type
-    auto message = Nan::New("Hello from C++! ").ToLocalChecked();
+    auto message = Nan::New("HELLO WORLD! ):^D").ToLocalChecked();
+    //auto message = Nan::New(halNumber);
     // 'info' is a macro's "implicit" parameter - it's a bridge object between C++ and JavaScript runtimes
     // You would use info to both extract the parameters passed to a function as well as set the return value.
     info.GetReturnValue().Set(message);
@@ -17,9 +20,15 @@ NAN_METHOD(Hello) {
 
 // Module initialization logic
 NAN_MODULE_INIT(Initialize) {
-    // Export the `Hello` function (equivalent to `export function Hello (...)` in JS)
+  // Initialize MATRIX BUS
+  if (!bus.Init()) return Nan::ThrowError(Nan::New("MATRIX HAL BUS: NOT INITIALIZED!").ToLocalChecked());
+
+    // Export function that returns "hello world"
     NAN_EXPORT(target, Hello);
-    NAN_EXPORT(target, Led);
+    // Export object named Vector    
+    //Vector::Init(target);
+    // Export function that returns object
+    NAN_EXPORT(target, anObject);// CC TEST
 }
 
 // Create the module called "addon" and initialize it with `Initialize` function (created with NAN_MODULE_INIT macro)

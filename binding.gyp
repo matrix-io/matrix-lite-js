@@ -11,7 +11,8 @@
         ]
       },
       "target_name": "addon",
-      "sources": [ "cpp_wrapper/matrix.cpp", "cpp_wrapper/everloop.cpp", "cpp_wrapper/matrix.h" ]
+      "sources": ["<!@(node -p \"require('fs').readdirSync('./hal_wrapper').map(f=>'hal_wrapper/'+f).join(' ')\")", 
+                  "<!@(node -p \"require('fs').readdirSync('./hal_wrapper/drivers').map(f=>'hal_wrapper/drivers/'+f).join(' ')\")"]
     }
   ]
 }
