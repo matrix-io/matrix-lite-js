@@ -1,26 +1,34 @@
 #include <nan.h>
 #include "everloop.h"
 #include "../matrix.h"
+#include <v8.h>
 
+// - Set LEDS (WORK IN PROGRESS)
+NAN_METHOD(Set){    
+    auto message = Nan::New("EVERLOOP FUNCTION WORLDDDDD!").ToLocalChecked();
+    //auto message = Nan::New(halNumber);
+    // 'info' is a macro's "implicit" parameter - it's a bridge object between C++ and JavaScript runtimes
+    // You would use info to both extract the parameters passed to a function as well as set the return value.
+    info.GetReturnValue().Set(message);
+}
 
-// Object Return CC TEST
-NAN_METHOD(anObject) {
+// ** LED OBJECT **
+NAN_METHOD(led) {
     // Create object
     v8::Local<v8::Object> obj = Nan::New<v8::Object>();
 
-    // Object parameters //
-
-    Nan::Set(obj, Nan::New("ledCountFAKE").ToLocalChecked(), Nan::New(20000));
-    // # of MATRIX Leds
+    // Set Object parameters //
+    // # of MATRIX LEDs
     int ledCount = bus.MatrixLeds();
-    Nan::Set( obj, Nan::New("ledCount").ToLocalChecked(), Nan::New(ledCount) );
-    // String
-    //Nan::Set(obj, Nan::New("key").ToLocalChecked(), Nan::New("value").ToLocalChecked());
-    
+    Nan::Set(obj, Nan::New("getCount").ToLocalChecked(), Nan::New(ledCount));
+
+    // LED set method
+    Nan::Set(obj, Nan::New("set").ToLocalChecked(),
+    Nan::GetFunction(Nan::New<v8::FunctionTemplate>(Set)).ToLocalChecked());
+
     // Return object
     info.GetReturnValue().Set(obj);
 }
-
 
 // EXPORTING OBJECT CONSTRUCTOR //
 // Nan::Persistent<v8::FunctionTemplate> Vector::constructor;

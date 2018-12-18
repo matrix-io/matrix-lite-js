@@ -3,6 +3,8 @@ const matrix = require('./build/Release/addon');
 //var vector = new matrix.Vector();
 //console.log(vector.add());
 
+// Returns & logs a string
 console.log(matrix.Hello());
-console.log(matrix.anObject());
 
+// Returns & logs the led object
+console.log(matrix.led());

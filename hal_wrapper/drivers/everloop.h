@@ -3,7 +3,7 @@
 
 #include <nan.h>
 
-NAN_METHOD(anObject);
+NAN_METHOD(led);
 
 // class Vector : public Nan::ObjectWrap {
 // public:

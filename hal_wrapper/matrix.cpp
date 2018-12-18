@@ -28,7 +28,7 @@ NAN_MODULE_INIT(Initialize) {
     // Export object named Vector    
     //Vector::Init(target);
     // Export function that returns object
-    NAN_EXPORT(target, anObject);// CC TEST
+    NAN_EXPORT(target, led);// CC TEST
 }
 
 // Create the module called "addon" and initialize it with `Initialize` function (created with NAN_MODULE_INIT macro)
