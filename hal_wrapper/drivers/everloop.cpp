@@ -3,7 +3,6 @@
 #include "../matrix.h"
 #include "matrix_hal/everloop.h"
 #include "matrix_hal/everloop_image.h"
-#include "matrix_hal/matrixio_bus.h"
 
 #include <v8.h>
 
@@ -42,19 +41,14 @@ NAN_METHOD(Set){
         int blue = Nan::Get(newLed, blueProp).ToLocalChecked()->NumberValue();
         int white = Nan::Get(newLed, whiteProp).ToLocalChecked()->NumberValue();
         // set new LED state
-        matrix_hal::LedValue led;
-        led.red = red;
-        led.green = green;
-        led.blue = blue;
-        led.white = white;
+        everloop_image.leds[i].red = red;
+        everloop_image.leds[i].green = green;
+        everloop_image.leds[i].blue = blue;
+        everloop_image.leds[i].white = white;
     }
 
     // Updates the Everloop on the MATRIX device
     everloop.Write(&everloop_image);
-
-    // grab first element
-    info.GetReturnValue().Set(indexOne);
-    //info.GetReturnValue().Set( Nan::New( Nan::New(69) ));
 }
 
 // ** EXPORTED LED OBJECT ** //
