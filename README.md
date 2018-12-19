@@ -1,7 +1,7 @@
 # MATRIX-Lite-JS
  MATRIX Lite JS is a Node.js wrapper that allows users to interface with MATRIX HAL, without having to code in C++.
  
- **Note that this project will eventually become a Node module.**
+ **Note that this project will eventually become a Node.js module.**
 
 # Current Implementation Roadmap
 - [x] Leds
