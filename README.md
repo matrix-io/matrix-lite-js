@@ -31,30 +31,30 @@ reboot
 ```
 
 ## 2. Install Node.js
-Downloads and installs the latest version of Node.js, using nvm
+*Downloads and installs the latest version of Node.js, using nvm*
 ```bash
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 . ~/.bashrc
 nvm install node
 ```
-Use the following command to verify that Node.js was properly installed.
+*Use the following command to verify that Node.js was properly installed.*
 ```
 node -v
 ```
 
 ## 3. Download Project
-Download project into any directory
+*Download project into any directory*
 ```
 git clone https://github.com/matrix-io/matrix-lite-js
 cd matrix-lite-js
 ```
 
-Install all Node.js dependencies
+*Install all Node.js dependencies*
 ```
 npm install
 ```
 
-Run index.js
+*Run index.js*
 ```
 node.js
 ```
