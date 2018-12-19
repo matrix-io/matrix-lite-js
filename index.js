@@ -1,9 +1,9 @@
 const matrix = require('./build/Release/addon');
 
-// Returns & logs a string
+// Returns & logs a string (test function)
 // console.log(matrix.Hello());
 
-// Returns & logs the led object
+// Create MATRIX LEDs
 var leds = [];
 for (i = 0; i < matrix.led().length; i++){
   leds.push({
@@ -12,5 +12,5 @@ for (i = 0; i < matrix.led().length; i++){
     blue: 1,
     white: 0
   })}
-
+// Set MATRIX LEDs
 matrix.led().set(leds);
