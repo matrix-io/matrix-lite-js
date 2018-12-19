@@ -1,7 +1,7 @@
 const matrix = require('./build/Release/addon');
 
 // Returns & logs a string (test function)
-// console.log(matrix.Hello());
+console.log(matrix);
 
 // Create MATRIX LEDs
 var leds = [];
@@ -14,3 +14,8 @@ for (i = 0; i < matrix.led().length; i++){
   })}
 // Set MATRIX LEDs
 matrix.led().set(leds);
+
+// Returns IMU object (Work In Progress)
+setInterval(function(){
+  console.log(matrix.imu());
+},50)

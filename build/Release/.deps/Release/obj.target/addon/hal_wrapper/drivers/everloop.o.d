@@ -29,7 +29,8 @@ Release/obj.target/addon/hal_wrapper/drivers/everloop.o: \
  ../node_modules/nan/nan_private.h \
  ../node_modules/nan/nan_typedarray_contents.h \
  ../node_modules/nan/nan_json.h ../hal_wrapper/drivers/everloop.h \
- ../hal_wrapper/drivers/../matrix.h
+ ../hal_wrapper/drivers/../matrix.h \
+ /home/pi/.node-gyp/11.4.0/include/node/v8.h
 ../hal_wrapper/drivers/everloop.cpp:
 ../node_modules/nan/nan.h:
 /home/pi/.node-gyp/11.4.0/include/node/node_version.h:
@@ -63,3 +64,4 @@ Release/obj.target/addon/hal_wrapper/drivers/everloop.o: \
 ../node_modules/nan/nan_json.h:
 ../hal_wrapper/drivers/everloop.h:
 ../hal_wrapper/drivers/../matrix.h:
+/home/pi/.node-gyp/11.4.0/include/node/v8.h:

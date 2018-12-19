@@ -1,6 +1,7 @@
 #include <nan.h>
 #include "matrix.h"
 #include "drivers/everloop.h"
+#include "drivers/sensors/imu.h"
 
 // Declare bus for MATRIX hardware communication
 matrix_hal::MatrixIOBus bus;
@@ -25,10 +26,10 @@ NAN_MODULE_INIT(Initialize) {
 
     // Export function that returns "hello world"
     NAN_EXPORT(target, Hello);
-    // Export object named Vector    
-    //Vector::Init(target);
-    // Export function that returns object
-    NAN_EXPORT(target, led);// CC TEST
+    // Export function that returns LED object
+    NAN_EXPORT(target, led);
+    // Export function that returns Sensor objects
+    NAN_EXPORT(target, imu);
 }
 
 // Create the module called "addon" and initialize it with `Initialize` function (created with NAN_MODULE_INIT macro)
