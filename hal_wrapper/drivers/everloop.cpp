@@ -58,7 +58,7 @@ NAN_METHOD(led) {
     // Create object
     v8::Local<v8::Object> obj = Nan::New<v8::Object>();
 
-    // Set Object parameters //
+    // Set Object Properties //
     // # of MATRIX LEDs
     Nan::Set(obj, Nan::New("length").ToLocalChecked(), Nan::New(ledCount));
 

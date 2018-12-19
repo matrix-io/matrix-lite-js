@@ -9,8 +9,7 @@ matrix_hal::MatrixIOBus bus;
 bool busReady = bus.Init();
 
 // NAN_METHOD is a Nan macro enabling convenient way of creating native node functions.
-NAN_METHOD(Hello) {
-    // Rainbow();
+NAN_METHOD(Hello) { 
     // Create an instance of V8's String type
     auto message = Nan::New("HELLO WORLD! ):^D").ToLocalChecked();
     //auto message = Nan::New(halNumber);

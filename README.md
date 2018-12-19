@@ -5,6 +5,8 @@
 This roadmap is for finishing the basic HAL implementation. A new roadmap, for transitioning to a Node.js module, will be started at a later date.
 - [x] Leds
 - [ ] Sensors
+  - [x] IMU
+  - [ ] Humidity
 
 # Raspberry Pi Dependencies
 Ensure you have a Raspberry Pi, attached with a MATRIX device, that's flashed with [Raspbian Stretch](https://www.raspberrypi.org/blog/raspbian-stretch/).
@@ -26,7 +28,7 @@ sudo apt-get install matrixio-creator-init libmatrixio-creator-hal libmatrixio-c
 ```
 **Restart your device.**
 ```bash
-reboot
+sudo reboot
 ```
 
 ## 2. Install Node.js
@@ -55,5 +57,5 @@ npm install
 
 **Run index.js**
 ```
-node.js
+node index.js
 ```
