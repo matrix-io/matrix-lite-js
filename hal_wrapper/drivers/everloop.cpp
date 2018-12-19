@@ -3,7 +3,6 @@
 #include "../matrix.h"
 #include "matrix_hal/everloop.h"
 #include "matrix_hal/everloop_image.h"
-
 #include <v8.h>
 
 // - Number of LEDs on MATRIX device

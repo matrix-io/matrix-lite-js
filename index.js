@@ -28,5 +28,5 @@ var imu = matrix.imu(); // get IMU object
 
 // get & refresh sensors
 setInterval(function(){
-  //console.log(imu.read());
+  console.log(imu.read());
 },50)

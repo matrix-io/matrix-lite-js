@@ -37,7 +37,7 @@ NAN_METHOD(Read){
   info.GetReturnValue().Set(obj);
 }
 
-// ** EXPORTED LED OBJECT ** //
+// ** EXPORTED IMU OBJECT ** //
 NAN_METHOD(imu) {
     // Set imu_sensor to use MatrixIOBus bus
     imu_sensor.Setup(&bus);
