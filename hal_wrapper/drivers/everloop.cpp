@@ -1,26 +1,71 @@
 #include <nan.h>
 #include "everloop.h"
 #include "../matrix.h"
+#include "matrix_hal/everloop.h"
+#include "matrix_hal/everloop_image.h"
+#include "matrix_hal/matrixio_bus.h"
+
 #include <v8.h>
 
-// - Set LEDS (WORK IN PROGRESS)
-NAN_METHOD(Set){    
-    auto message = Nan::New("EVERLOOP FUNCTION WORLDDDDD!").ToLocalChecked();
-    //auto message = Nan::New(halNumber);
-    // 'info' is a macro's "implicit" parameter - it's a bridge object between C++ and JavaScript runtimes
-    // You would use info to both extract the parameters passed to a function as well as set the return value.
-    info.GetReturnValue().Set(message);
+// Number of LEDs on MATRIX device
+int ledCount = bus.MatrixLeds();
+
+// - Set LED states (WORK IN PROGRESS)
+NAN_METHOD(Set){
+    // if array argument is not given, throw error
+    if (!info[0]->IsArray()) {Nan::ThrowTypeError("Argument is not an array");return;}
+    
+    // grab array of LED RGBW states
+    v8::Local<v8::Array> leds = v8::Local<v8::Array>::Cast(info[0]);
+    // if LED array != LEDs on MATRIX device, throw error
+    if (leds->Length() != ledCount) {Nan::ThrowTypeError("Argument array size != LEDs on MATRIX device");return;}
+
+    // MATRIX EVERLOOP LOGIC //
+    // create empty everloop image with size of ledCount
+    matrix_hal::EverloopImage everloop_image(ledCount);
+    // create Everloop object
+    matrix_hal::Everloop everloop;
+    // set everloop to use MatrixIOBus bus
+    everloop.Setup(&bus);
+
+    // for each LED
+    for (int i = 0; i < leds->Length(); i++) {
+        // grab LED object properties
+        v8::Local<v8::Object> newLed = leds->Get(i)->ToObject();
+        v8::Local<v8::String> redProp = Nan::New("red").ToLocalChecked();
+        v8::Local<v8::String> greenProp = Nan::New("green").ToLocalChecked();
+        v8::Local<v8::String> blueProp = Nan::New("blue").ToLocalChecked();
+        v8::Local<v8::String> whiteProp = Nan::New("white").ToLocalChecked();
+        // grab RGBW values
+        int red = Nan::Get(newLed, redProp).ToLocalChecked()->NumberValue();
+        int green = Nan::Get(newLed, greenProp).ToLocalChecked()->NumberValue();
+        int blue = Nan::Get(newLed, blueProp).ToLocalChecked()->NumberValue();
+        int white = Nan::Get(newLed, whiteProp).ToLocalChecked()->NumberValue();
+        // set new LED state
+        matrix_hal::LedValue led;
+        led.red = red;
+        led.green = green;
+        led.blue = blue;
+        led.white = white;
+    }
+
+    // Updates the Everloop on the MATRIX device
+    everloop.Write(&everloop_image);
+
+    // grab first element
+    info.GetReturnValue().Set(indexOne);
+    //info.GetReturnValue().Set( Nan::New( Nan::New(69) ));
 }
 
-// ** LED OBJECT **
+// ** EXPORTED LED OBJECT ** //
 NAN_METHOD(led) {
     // Create object
     v8::Local<v8::Object> obj = Nan::New<v8::Object>();
 
     // Set Object parameters //
     // # of MATRIX LEDs
-    int ledCount = bus.MatrixLeds();
-    Nan::Set(obj, Nan::New("getCount").ToLocalChecked(), Nan::New(ledCount));
+    //int ledCount = bus.MatrixLeds();
+    Nan::Set(obj, Nan::New("length").ToLocalChecked(), Nan::New(ledCount));
 
     // LED set method
     Nan::Set(obj, Nan::New("set").ToLocalChecked(),
