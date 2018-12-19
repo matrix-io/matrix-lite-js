@@ -1,8 +1,11 @@
 # MATRIX-Lite-JS
  MATRIX Lite JS is a Node.js wrapper that allows users to interface with MATRIX HAL, without having to code in C++.
+ 
+ **Note that this project will eventually become a Node module.**
 
-# Current Roadmap
-- [ ] Led implementation
+# Current Implementation Roadmap
+- [x] Leds
+- [ ] Sensors
 
 # Raspberry Pi Dependencies
 Ensure you have a Raspberry Pi, attached with a MATRIX device, that's flashed with [Raspbian Stretch](https://www.raspberrypi.org/blog/raspbian-stretch/).
@@ -37,4 +40,21 @@ nvm install node
 Use the following command to verify that Node.js was properly installed.
 ```
 node -v
+```
+
+## 3. Download Project
+Download project into any directory
+```
+git clone https://github.com/matrix-io/matrix-lite-js
+cd matrix-lite-js
+```
+
+Install all Node.js dependencies
+```
+npm install
+```
+
+Run index.js
+```
+node.js
 ```
