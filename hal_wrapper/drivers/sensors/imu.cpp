@@ -5,12 +5,12 @@
 #include "matrix_hal/imu_data.h"
 #include <v8.h>
 
-// Create IMUData object
+// Create IMU Data object
 matrix_hal::IMUData imu_data;
-// Create IMUSensor object
+// Create IMU Sensor object
 matrix_hal::IMUSensor imu_sensor;
 
-NAN_METHOD(Read){
+NAN_METHOD(ReadIMU){
   // Overwrites imu_data with new data from IMU sensor
   imu_sensor.Read(&imu_data);
 
@@ -48,7 +48,7 @@ NAN_METHOD(imu) {
     // Set Object Properties //
     // IMU read data method
     Nan::Set(obj, Nan::New("read").ToLocalChecked(),
-    Nan::GetFunction(Nan::New<v8::FunctionTemplate>(Read)).ToLocalChecked());
+    Nan::GetFunction(Nan::New<v8::FunctionTemplate>(ReadIMU)).ToLocalChecked());
 
     // Return object
     info.GetReturnValue().Set(obj);

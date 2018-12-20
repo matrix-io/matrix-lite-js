@@ -24,9 +24,18 @@ everloop.set(leds);
 
 /////////////////
 // IMU EXAMPLE \\
-var imu = matrix.imu(); // get IMU object
+// var imu = matrix.imu(); // get IMU object
+
+// // get & refresh sensors
+// setInterval(function(){
+//   console.log(imu.read());
+// },50)
+
+//////////////////////
+// HUMIDITY EXAMPLE \\
+var humidity = matrix.humidity(); // get IMU object
 
 // get & refresh sensors
 setInterval(function(){
-  console.log(imu.read());
+  console.log(humidity.read());
 },50)
