@@ -4,7 +4,7 @@
 # HAL Wrapper Roadmap
 This roadmap is for finishing the basic HAL implementation. A new roadmap, for transitioning to a Node.js module, will be started at a later date.
 - [x] Leds
-- [ ] Sensors
+- [x] Sensors
   - [x] IMU
   - [x] Humidity
   - [x] Pressure
