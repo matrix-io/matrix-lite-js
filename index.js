@@ -21,27 +21,62 @@ for (i = 0; i < everloop.length; i++){
 // Write configuration to everloop
 everloop.set(leds);
 
-//////////////////
-// GPIO EXAMPLE \\
+///////////////////////////////////
+// GPIO DIGITAL SET/READ EXAMPLE \\
+// var gpio = matrix.gpio(); // get GPIO object
+// // Set pin 4 mode (0=INPUT or 1=OUTPUT)
+// gpio.setMode(4,1);
+
+// // Toggle pin value ON/OFF
+// gpio.setDigital(4,1)// set initial value
+// var counter = 0;
+// // toggle value every second
+// setInterval(function(){
+//   if (counter%2 === 0) {gpio.setDigital(4,0);}
+//   else if (counter%2 === 1) {gpio.setDigital(4,1);}
+//   counter++;
+// },1000);
+
+// // Log pin state
+// setInterval(function(){
+//   if(gpio.readDigital(4)){console.log("PIN 4 is ON");}
+//   else {console.log("PIN 4 is OFF");}
+// },50)
+
+////////////////////////////
+// GPIO PWM SERVO ANGLE EXAMPLE \\
 var gpio = matrix.gpio(); // get GPIO object
-// Set pin 4 mode (0=INPUT or 1=OUTPUT)
-gpio.setPinMode(4,1);
+gpio.setMode(4,1);// set pin 0 to output
+gpio.setFunction(4, 1);// set pin 0 to PWM
 
-// Toggle pin value ON/OFF
-gpio.setPinValue(4,1)// set initial value
-var counter = 0;
-// toggle value every second
-setInterval(function(){
-  if (counter%2 === 0) {gpio.setPinValue(4,0);}
-  else if (counter%2 === 1) {gpio.setPinValue(4,1);}
-  counter++;
-},1000);
+var percentage = 0.5;
+gpio.setServoAngle(179,percentage,4)
+setTimeout(function(){
+  gpio.setServoAngle(1,percentage,4)
+},2000);
+// float angle, float min_pulse_ms, int pin (0-15)
+// var angle = 0;
+// setInterval(function(){
+//   if(angle < 180){
+//     console.log(angle);
+//     gpio.setServoAngle(angle,0.5,0)// set servo angle
+//     angle ++;
+//   }
+// },100);
 
-// Log pin state
-setInterval(function(){
-  if(gpio.readPinValue(4)){console.log("PIN 4 is ON");}
-  else {console.log("PIN 4 is OFF");}
-},50)
+
+//////////////////////
+// GPIO PWM EXAMPLE \\
+// var gpio = matrix.gpio(); // get GPIO object
+// gpio.setMode(0, 1);// set pin 0 to output
+// gpio.setFunction(0, 1);// set pin 0 to PWM
+// var percentage = 0;
+// setInterval(function(){
+//   console.log(percentage);
+//   // Parameters: float frequency, float percentage, int pin (0-15)
+//   gpio.setPWM(50, percentage, 0)// set pwm for pin 0
+//   percentage += 0.2;
+// },500);
 
 /////////////////
 // IMU EXAMPLE \\

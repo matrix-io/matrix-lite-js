@@ -31,12 +31,13 @@ NAN_MODULE_INIT(Initialize) {
     NAN_EXPORT(target, Hello);
     // Export function that returns LED object
     NAN_EXPORT(target, led);
+    // Export function that returns GPIO object
+    NAN_EXPORT(target, gpio);
     // Export function that returns Sensor objects
     NAN_EXPORT(target, imu);
     NAN_EXPORT(target, humidity);
     NAN_EXPORT(target, pressure);
     NAN_EXPORT(target, uv);
-    NAN_EXPORT(target, gpio);
 }
 
 // Create the module called "addon" and initialize it with `Initialize` function (created with NAN_MODULE_INIT macro)

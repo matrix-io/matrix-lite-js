@@ -52,7 +52,7 @@ NAN_METHOD(Set){
 
 // ** EXPORTED LED OBJECT ** //
 NAN_METHOD(led) {
-    // set everloop to use MatrixIOBus bus
+    // Set everloop to use MatrixIOBus bus
     everloop.Setup(&bus);
 
     // Create object
