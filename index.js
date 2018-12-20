@@ -12,7 +12,7 @@ var leds = []; // array representing each LED
 for (i = 0; i < matrix.led().length; i++){
   // Push new color configuration
   leds.push({
-    red: 0,
+    red: 1,
     green: 0,
     blue: 1,
     white: 0
@@ -33,9 +33,18 @@ everloop.set(leds);
 
 //////////////////////
 // HUMIDITY EXAMPLE \\
-var humidity = matrix.humidity(); // get IMU object
+// var humidity = matrix.humidity(); // get IMU object
+
+// // get & refresh sensors
+// setInterval(function(){
+//   console.log(humidity.read());
+// },50)
+
+//////////////////////
+// PRESSURE EXAMPLE \\
+var pressure = matrix.pressure(); // get IMU object
 
 // get & refresh sensors
 setInterval(function(){
-  console.log(humidity.read());
+  console.log(pressure.read());
 },50)

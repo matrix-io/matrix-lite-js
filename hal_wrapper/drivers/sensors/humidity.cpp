@@ -16,15 +16,15 @@ NAN_METHOD(ReadHumidity){
 
   // Create Humidity data object //
   v8::Local<v8::Object> obj = Nan::New<v8::Object>();
-  // Get/Set humidity & temperature properties
-  Nan::Set(obj, Nan::New("humidity").ToLocalChecked(), Nan::New(humidity_data.humidity));// humidity represented in %
-  Nan::Set(obj, Nan::New("temperature").ToLocalChecked(), Nan::New(humidity_data.temperature));// temperature represented in °C
+  // Get/Set object properties
+  Nan::Set(obj, Nan::New("humidity").ToLocalChecked(), Nan::New(humidity_data.humidity));// Humidity represented in %
+  Nan::Set(obj, Nan::New("temperature").ToLocalChecked(), Nan::New(humidity_data.temperature));// Temperature represented in °C
 
   // Return object
   info.GetReturnValue().Set(obj);
 }
 
-// ** EXPORTED Humidity OBJECT ** //
+// ** EXPORTED HUMIDITY OBJECT ** //
 NAN_METHOD(humidity) {
     // Set humidity_sensor to use MatrixIOBus bus
     humidity_sensor.Setup(&bus);
@@ -33,7 +33,7 @@ NAN_METHOD(humidity) {
     v8::Local<v8::Object> obj = Nan::New<v8::Object>();
 
     // Set Object Properties //
-    // Humidity read data method
+    // Read humidity method
     Nan::Set(obj, Nan::New("read").ToLocalChecked(),
     Nan::GetFunction(Nan::New<v8::FunctionTemplate>(ReadHumidity)).ToLocalChecked());
 

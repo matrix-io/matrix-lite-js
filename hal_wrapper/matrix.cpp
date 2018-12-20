@@ -3,6 +3,7 @@
 #include "drivers/everloop.h"
 #include "drivers/sensors/imu.h"
 #include "drivers/sensors/humidity.h"
+#include "drivers/sensors/pressure.h"
 
 // Declare bus for MATRIX hardware communication
 matrix_hal::MatrixIOBus bus;
@@ -31,6 +32,7 @@ NAN_MODULE_INIT(Initialize) {
     // Export function that returns Sensor objects
     NAN_EXPORT(target, imu);
     NAN_EXPORT(target, humidity);
+    NAN_EXPORT(target, pressure);
 }
 
 // Create the module called "addon" and initialize it with `Initialize` function (created with NAN_MODULE_INIT macro)

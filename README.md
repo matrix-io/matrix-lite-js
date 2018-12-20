@@ -7,8 +7,10 @@ This roadmap is for finishing the basic HAL implementation. A new roadmap, for t
 - [ ] Sensors
   - [x] IMU
   - [x] Humidity
-  - [ ] Pressure
+  - [x] Pressure
   - [ ] UV
+- [ ] GPIO
+- [ ] Microphone
 
 # Raspberry Pi Dependencies
 Ensure you have a Raspberry Pi, attached with a MATRIX device, that's flashed with [Raspbian Stretch](https://www.raspberrypi.org/blog/raspbian-stretch/).

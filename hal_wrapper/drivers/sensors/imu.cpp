@@ -46,7 +46,7 @@ NAN_METHOD(imu) {
     v8::Local<v8::Object> obj = Nan::New<v8::Object>();
 
     // Set Object Properties //
-    // IMU read data method
+    // Read IMU method
     Nan::Set(obj, Nan::New("read").ToLocalChecked(),
     Nan::GetFunction(Nan::New<v8::FunctionTemplate>(ReadIMU)).ToLocalChecked());
 
