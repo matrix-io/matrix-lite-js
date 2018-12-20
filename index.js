@@ -26,34 +26,34 @@ everloop.set(leds);
 // IMU EXAMPLE \\
 // var imu = matrix.imu(); // get IMU object
 
-// // get & refresh sensors
+// // get & refresh sensor data
 // setInterval(function(){
 //   console.log(imu.read());
 // },50)
 
 //////////////////////
 // HUMIDITY EXAMPLE \\
-// var humidity = matrix.humidity(); // get IMU object
+// var humidity = matrix.humidity(); // get Humidity object
 
-// // get & refresh sensors
+// // get & refresh sensor data
 // setInterval(function(){
 //   console.log(humidity.read());
 // },50)
 
 //////////////////////
 // PRESSURE EXAMPLE \\
-// var pressure = matrix.pressure(); // get IMU object
+// var pressure = matrix.pressure(); // get Pressure object
 
-// // get & refresh sensors
+// // get & refresh sensor data
 // setInterval(function(){
 //   console.log(pressure.read());
 // },50)
 
 //////////////////////
 // UV EXAMPLE \\
-var uv = matrix.uv(); // get IMU object
+var uv = matrix.uv(); // get UV object
 
-// get & refresh sensors
+// get & refresh sensor data
 setInterval(function(){
   console.log(uv.read());
 },50)
