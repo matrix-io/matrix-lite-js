@@ -9,7 +9,8 @@ This roadmap is for finishing the basic HAL implementation. A new roadmap, for t
   - [x] Humidity
   - [x] Pressure
   - [x] UV
-- [ ] GPIO
+- [x] GPIO Digital Write/Read
+- [ ] GPIO PWM
 - [ ] Microphone
 
 # Raspberry Pi Dependencies
