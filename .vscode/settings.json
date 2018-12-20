@@ -17,6 +17,18 @@
     "iosfwd": "cpp",
     "system_error": "cpp",
     "ratio": "cpp",
-    "__tuple": "cpp"
+    "__tuple": "cpp",
+    "__bit_reference": "cpp",
+    "__functional_base": "cpp",
+    "atomic": "cpp",
+    "chrono": "cpp",
+    "deque": "cpp",
+    "functional": "cpp",
+    "iterator": "cpp",
+    "limits": "cpp",
+    "locale": "cpp",
+    "memory": "cpp",
+    "tuple": "cpp",
+    "vector": "cpp"
   }
 }

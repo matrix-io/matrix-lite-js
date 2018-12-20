@@ -1,6 +1,7 @@
 #include <nan.h>
 #include "matrix.h"
 #include "drivers/everloop.h"
+#include "drivers/gpio.h"
 #include "drivers/sensors/imu.h"
 #include "drivers/sensors/humidity.h"
 #include "drivers/sensors/pressure.h"
@@ -35,6 +36,7 @@ NAN_MODULE_INIT(Initialize) {
     NAN_EXPORT(target, humidity);
     NAN_EXPORT(target, pressure);
     NAN_EXPORT(target, uv);
+    NAN_EXPORT(target, gpio);
 }
 
 // Create the module called "addon" and initialize it with `Initialize` function (created with NAN_MODULE_INIT macro)

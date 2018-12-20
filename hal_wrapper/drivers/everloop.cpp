@@ -13,10 +13,11 @@ matrix_hal::EverloopImage everloop_image(ledCount);
 // create Everloop object
 matrix_hal::Everloop everloop;
 
-// - Set LED states (WORK IN PROGRESS)
+// - Set LED states
+// Paramters: Array of size ledCount with objects that have RGBW values.
 NAN_METHOD(Set){
     // if array argument is not given, throw error
-    if (!info[0]->IsArray()) {Nan::ThrowTypeError("Argument is not an array");return;}
+    if (!info[0]->IsArray()) {Nan::ThrowTypeError("Argument must be an array");return;}
     
     // grab array of LED RGBW states
     v8::Local<v8::Array> leds = v8::Local<v8::Array>::Cast(info[0]);
