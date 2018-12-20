@@ -1,5 +1,5 @@
-#ifndef IMU_H  // Prevent duplicate declarations
-#define IMU_H
+#ifndef IMU_SENSOR_H  // Prevent duplicate declarations
+#define IMU_SENSOR_H
 
 #include <nan.h>
 

@@ -12,9 +12,9 @@ var leds = []; // array representing each LED
 for (i = 0; i < matrix.led().length; i++){
   // Push new color configuration
   leds.push({
-    red: 1,
+    red: 0,
     green: 0,
-    blue: 1,
+    blue: 0,
     white: 0
   })
 }
@@ -42,9 +42,18 @@ everloop.set(leds);
 
 //////////////////////
 // PRESSURE EXAMPLE \\
-var pressure = matrix.pressure(); // get IMU object
+// var pressure = matrix.pressure(); // get IMU object
+
+// // get & refresh sensors
+// setInterval(function(){
+//   console.log(pressure.read());
+// },50)
+
+//////////////////////
+// UV EXAMPLE \\
+var uv = matrix.uv(); // get IMU object
 
 // get & refresh sensors
 setInterval(function(){
-  console.log(pressure.read());
+  console.log(uv.read());
 },50)

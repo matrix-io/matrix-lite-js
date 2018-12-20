@@ -4,6 +4,7 @@
 #include "drivers/sensors/imu.h"
 #include "drivers/sensors/humidity.h"
 #include "drivers/sensors/pressure.h"
+#include "drivers/sensors/uv.h"
 
 // Declare bus for MATRIX hardware communication
 matrix_hal::MatrixIOBus bus;
@@ -33,6 +34,7 @@ NAN_MODULE_INIT(Initialize) {
     NAN_EXPORT(target, imu);
     NAN_EXPORT(target, humidity);
     NAN_EXPORT(target, pressure);
+    NAN_EXPORT(target, uv);
 }
 
 // Create the module called "addon" and initialize it with `Initialize` function (created with NAN_MODULE_INIT macro)

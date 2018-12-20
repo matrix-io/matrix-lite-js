@@ -1,5 +1,5 @@
-#ifndef PRESSURE_H  // Prevent duplicate declarations
-#define PRESSURE_H
+#ifndef PRESSURE_SENSOR_H  // Prevent duplicate declarations
+#define PRESSURE_SENSOR_H
 
 #include <nan.h>
 

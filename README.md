@@ -8,7 +8,7 @@ This roadmap is for finishing the basic HAL implementation. A new roadmap, for t
   - [x] IMU
   - [x] Humidity
   - [x] Pressure
-  - [ ] UV
+  - [x] UV
 - [ ] GPIO
 - [ ] Microphone
 

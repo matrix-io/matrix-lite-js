@@ -1,5 +1,5 @@
-#ifndef HUMIDITY_H  // Prevent duplicate declarations
-#define HUMIDITY_H
+#ifndef HUMIDITY_SENSOR_H  // Prevent duplicate declarations
+#define HUMIDITY_SENSOR_H
 
 #include <nan.h>
 
