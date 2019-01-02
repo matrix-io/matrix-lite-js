@@ -83,7 +83,13 @@ INCS_Release := \
 
 OBJS := \
 	$(obj).target/$(TARGET)/hal_wrapper/matrix.o \
-	$(obj).target/$(TARGET)/hal_wrapper/drivers/everloop.o
+	$(obj).target/$(TARGET)/hal_wrapper/drivers/everloop.o \
+	$(obj).target/$(TARGET)/hal_wrapper/drivers/gpio.o \
+	$(obj).target/$(TARGET)/hal_wrapper/drivers/microphone.o \
+	$(obj).target/$(TARGET)/hal_wrapper/drivers/sensors/humidity.o \
+	$(obj).target/$(TARGET)/hal_wrapper/drivers/sensors/imu.o \
+	$(obj).target/$(TARGET)/hal_wrapper/drivers/sensors/pressure.o \
+	$(obj).target/$(TARGET)/hal_wrapper/drivers/sensors/uv.o
 
 # Add to the list of files we specially track dependencies for.
 all_deps += $(OBJS)

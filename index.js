@@ -14,12 +14,20 @@ for (i = 0; i < everloop.length; i++){
   leds.push({
     red: 0,
     green: 0,
-    blue: 1,
+    blue: 100,
     white: 0
   })
 }
 // Write configuration to everloop
 everloop.set(leds);
+
+////////////////////////
+// MICROPHONE EXAMPLE \\
+var mics = matrix.microphone();
+console.log(mics.config({
+  sampling_rate : 1500,
+  gain: 5
+}));
 
 ///////////////////////////////////
 // GPIO DIGITAL SET/READ EXAMPLE \\
@@ -45,15 +53,15 @@ everloop.set(leds);
 
 ////////////////////////////
 // GPIO PWM SERVO ANGLE EXAMPLE \\
-var gpio = matrix.gpio(); // get GPIO object
-gpio.setMode(4,1);// set pin 0 to output
-gpio.setFunction(4, 1);// set pin 0 to PWM
+// var gpio = matrix.gpio(); // get GPIO object
+// gpio.setMode(4,1);// set pin 0 to output
+// gpio.setFunction(4, 1);// set pin 0 to PWM
 
-var percentage = 0.5;
-gpio.setServoAngle(179,percentage,4)
-setTimeout(function(){
-  gpio.setServoAngle(1,percentage,4)
-},2000);
+// var percentage = 0.8;
+// gpio.setServoAngle(179,percentage,4)
+// setTimeout(function(){
+//   gpio.setServoAngle(1,percentage,4)
+// },2000);
 // float angle, float min_pulse_ms, int pin (0-15)
 // var angle = 0;
 // setInterval(function(){

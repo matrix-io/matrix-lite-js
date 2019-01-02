@@ -1,6 +1,6 @@
-cmd_Release/obj.target/addon/hal_wrapper/matrix.o := g++ '-DNODE_GYP_MODULE_NAME=addon' '-DUSING_UV_SHARED=1' '-DUSING_V8_SHARED=1' '-DV8_DEPRECATION_WARNINGS=1' '-D_LARGEFILE_SOURCE' '-D_FILE_OFFSET_BITS=64' '-DBUILDING_NODE_EXTENSION' -I/home/pi/.node-gyp/11.4.0/include/node -I/home/pi/.node-gyp/11.4.0/src -I/home/pi/.node-gyp/11.4.0/deps/openssl/config -I/home/pi/.node-gyp/11.4.0/deps/openssl/openssl/include -I/home/pi/.node-gyp/11.4.0/deps/uv/include -I/home/pi/.node-gyp/11.4.0/deps/zlib -I/home/pi/.node-gyp/11.4.0/deps/v8/include -I../node_modules/nan  -fPIC -pthread -Wall -Wextra -Wno-unused-parameter -O3 -fno-omit-frame-pointer -fno-rtti -fno-exceptions -std=gnu++1y -MMD -MF ./Release/.deps/Release/obj.target/addon/hal_wrapper/matrix.o.d.raw   -c -o Release/obj.target/addon/hal_wrapper/matrix.o ../hal_wrapper/matrix.cpp
-Release/obj.target/addon/hal_wrapper/matrix.o: ../hal_wrapper/matrix.cpp \
- ../node_modules/nan/nan.h \
+cmd_Release/obj.target/addon/hal_wrapper/drivers/gpio.o := g++ '-DNODE_GYP_MODULE_NAME=addon' '-DUSING_UV_SHARED=1' '-DUSING_V8_SHARED=1' '-DV8_DEPRECATION_WARNINGS=1' '-D_LARGEFILE_SOURCE' '-D_FILE_OFFSET_BITS=64' '-DBUILDING_NODE_EXTENSION' -I/home/pi/.node-gyp/11.4.0/include/node -I/home/pi/.node-gyp/11.4.0/src -I/home/pi/.node-gyp/11.4.0/deps/openssl/config -I/home/pi/.node-gyp/11.4.0/deps/openssl/openssl/include -I/home/pi/.node-gyp/11.4.0/deps/uv/include -I/home/pi/.node-gyp/11.4.0/deps/zlib -I/home/pi/.node-gyp/11.4.0/deps/v8/include -I../node_modules/nan  -fPIC -pthread -Wall -Wextra -Wno-unused-parameter -O3 -fno-omit-frame-pointer -fno-rtti -fno-exceptions -std=gnu++1y -MMD -MF ./Release/.deps/Release/obj.target/addon/hal_wrapper/drivers/gpio.o.d.raw   -c -o Release/obj.target/addon/hal_wrapper/drivers/gpio.o ../hal_wrapper/drivers/gpio.cpp
+Release/obj.target/addon/hal_wrapper/drivers/gpio.o: \
+ ../hal_wrapper/drivers/gpio.cpp ../node_modules/nan/nan.h \
  /home/pi/.node-gyp/11.4.0/include/node/node_version.h \
  /home/pi/.node-gyp/11.4.0/include/node/uv.h \
  /home/pi/.node-gyp/11.4.0/include/node/uv/errno.h \
@@ -28,13 +28,10 @@ Release/obj.target/addon/hal_wrapper/matrix.o: ../hal_wrapper/matrix.cpp \
  ../node_modules/nan/nan_weak.h ../node_modules/nan/nan_object_wrap.h \
  ../node_modules/nan/nan_private.h \
  ../node_modules/nan/nan_typedarray_contents.h \
- ../node_modules/nan/nan_json.h ../hal_wrapper/matrix.h \
- ../hal_wrapper/drivers/everloop.h ../hal_wrapper/drivers/gpio.h \
- ../hal_wrapper/drivers/microphone.h ../hal_wrapper/drivers/sensors/imu.h \
- ../hal_wrapper/drivers/sensors/humidity.h \
- ../hal_wrapper/drivers/sensors/pressure.h \
- ../hal_wrapper/drivers/sensors/uv.h
-../hal_wrapper/matrix.cpp:
+ ../node_modules/nan/nan_json.h ../hal_wrapper/drivers/../matrix.h \
+ ../hal_wrapper/drivers/gpio.h \
+ /home/pi/.node-gyp/11.4.0/include/node/v8.h
+../hal_wrapper/drivers/gpio.cpp:
 ../node_modules/nan/nan.h:
 /home/pi/.node-gyp/11.4.0/include/node/node_version.h:
 /home/pi/.node-gyp/11.4.0/include/node/uv.h:
@@ -65,11 +62,6 @@ Release/obj.target/addon/hal_wrapper/matrix.o: ../hal_wrapper/matrix.cpp \
 ../node_modules/nan/nan_private.h:
 ../node_modules/nan/nan_typedarray_contents.h:
 ../node_modules/nan/nan_json.h:
-../hal_wrapper/matrix.h:
-../hal_wrapper/drivers/everloop.h:
+../hal_wrapper/drivers/../matrix.h:
 ../hal_wrapper/drivers/gpio.h:
-../hal_wrapper/drivers/microphone.h:
-../hal_wrapper/drivers/sensors/imu.h:
-../hal_wrapper/drivers/sensors/humidity.h:
-../hal_wrapper/drivers/sensors/pressure.h:
-../hal_wrapper/drivers/sensors/uv.h:
+/home/pi/.node-gyp/11.4.0/include/node/v8.h:
