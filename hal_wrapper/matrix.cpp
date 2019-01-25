@@ -21,8 +21,9 @@ NAN_MODULE_INIT(Initialize) {
     NAN_EXPORT(target, led);
     // Export function that returns GPIO object
     NAN_EXPORT(target, gpio);
-    // Export function that returns Microphone  object
-    NAN_EXPORT(target, microphone);
+    // Export function that returns Microphone objects
+    NAN_EXPORT(target, microphoneArray);
+    // NAN_EXPORT(target, microphoneCore);
     // Export function that returns Sensor objects
     NAN_EXPORT(target, imu);
     NAN_EXPORT(target, humidity);

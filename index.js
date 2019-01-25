@@ -13,21 +13,32 @@ for (i = 0; i < everloop.length; i++){
   // Push new color configuration (0-255)
   leds.push({
     red: 0,
-    green: 0,
-    blue: 100,
+    green: 100,
+    blue: 20,
     white: 0
-  })
+  });
 }
 // Write configuration to everloop
 everloop.set(leds);
 
 ////////////////////////
 // MICROPHONE EXAMPLE \\
-var mics = matrix.microphone();
-console.log(mics.config({
-  sampling_rate : 1500,
-  gain: 5
-}));
+var mics = matrix.microphoneArray();
+mics.setup();
+
+mics.setGain(2);
+console.log(mics.getGain());
+mics.setGain(10);
+console.log(mics.getGain());
+
+var imu = matrix.imu(); // get IMU object
+
+// get & refresh sensor data
+setInterval(function(){
+  console.log(imu.read());
+},50)
+
+
 
 ///////////////////////////////////
 // GPIO DIGITAL SET/READ EXAMPLE \\

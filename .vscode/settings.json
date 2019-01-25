@@ -30,6 +30,7 @@
     "memory": "cpp",
     "tuple": "cpp",
     "vector": "cpp",
-    "__functional_03": "cpp"
+    "__functional_03": "cpp",
+    "istream": "cpp"
   }
 }
