@@ -1,6 +1,6 @@
 #include <nan.h>
 #include "../../matrix.h"
-#include "imu.h"
+#include "sensors.h"
 #include "matrix_hal/imu_sensor.h"
 #include "matrix_hal/imu_data.h"
 #include <v8.h>

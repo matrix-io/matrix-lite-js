@@ -1,6 +1,6 @@
 #include <nan.h>
 #include "../../matrix.h"
-#include "uv.h"
+#include "sensors.h"
 #include "matrix_hal/uv_sensor.h"
 #include "matrix_hal/uv_data.h"
 #include <v8.h>

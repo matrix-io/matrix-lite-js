@@ -1,6 +1,6 @@
 #include <nan.h>
 #include "../../matrix.h"
-#include "pressure.h"
+#include "sensors.h"
 #include "matrix_hal/pressure_sensor.h"
 #include "matrix_hal/pressure_data.h"
 #include <v8.h>

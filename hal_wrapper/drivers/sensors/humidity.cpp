@@ -1,6 +1,6 @@
 #include <nan.h>
 #include "../../matrix.h"
-#include "humidity.h"
+#include "sensors.h"
 #include "matrix_hal/humidity_sensor.h"
 #include "matrix_hal/humidity_data.h"
 #include <v8.h>

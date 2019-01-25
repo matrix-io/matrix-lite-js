@@ -3,10 +3,7 @@
 #include "drivers/everloop.h"
 #include "drivers/gpio.h"
 #include "drivers/microphone.h"
-#include "drivers/sensors/imu.h"
-#include "drivers/sensors/humidity.h"
-#include "drivers/sensors/pressure.h"
-#include "drivers/sensors/uv.h"
+#include "drivers/sensors/sensors.h"
 
 // Declare bus for MATRIX hardware communication
 matrix_hal::MatrixIOBus bus;
