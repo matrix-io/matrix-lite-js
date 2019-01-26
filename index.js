@@ -23,20 +23,25 @@ everloop.set(leds);
 
 ////////////////////////
 // MICROPHONE EXAMPLE \\
+// setup mics
 var mics = matrix.microphoneArray();
+var micsCore = matrix.microphoneCore();
+
 mics.setup();
+micsCore.setup();
 
-mics.setGain(2);
-console.log(mics.getGain());
-mics.setGain(10);
-console.log(mics.getGain());
+// set config
+mics.setSamplingRate(8000);// Set sampling rate must come before set gain!
+mics.setGain(12);
+mics.showConfiguration();
 
-var imu = matrix.imu(); // get IMU object
-
-// get & refresh sensor data
-setInterval(function(){
-  console.log(imu.read());
-},50)
+// beamforming delays
+mics.calculateDelays({
+  "azimutal_angle": 0,
+  "polar_angle": 0,
+  "radial_distance_mm": 1000,
+  "sound_speed_mmseg": 320 * 1000
+});
 
 
 

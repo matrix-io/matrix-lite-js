@@ -16,11 +16,14 @@ NAN_MODULE_INIT(Initialize) {
   if (!bus.Init()) return Nan::ThrowError(Nan::New("MATRIX HAL BUS: NOT INITIALIZED!").ToLocalChecked());
     // Export function that returns LED object
     NAN_EXPORT(target, led);
+
     // Export function that returns GPIO object
     NAN_EXPORT(target, gpio);
+
     // Export function that returns Microphone objects
     NAN_EXPORT(target, microphoneArray);
-    // NAN_EXPORT(target, microphoneCore);
+    NAN_EXPORT(target, microphoneCore);
+    
     // Export function that returns Sensor objects
     NAN_EXPORT(target, imu);
     NAN_EXPORT(target, humidity);
