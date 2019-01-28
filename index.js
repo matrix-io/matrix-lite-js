@@ -35,6 +35,9 @@ mics.setSamplingRate(8000);// Set sampling rate must come before set gain!
 mics.setGain(12);
 mics.showConfiguration();
 
+console.log("\n\nSAMPLING RATE BELOW");// test
+console.log(mics.getSamplingRate());// test
+
 // beamforming delays
 mics.calculateDelays({
   "azimutal_angle": 0,
@@ -43,6 +46,17 @@ mics.calculateDelays({
   "sound_speed_mmseg": 320 * 1000
 });
 
+// buffer = [mics.channels() + 1]
+// [mics.getSamplingRate() +
+//  mics.numberOfSamples()];
+
+// console.log(buffer);
+
+console.log("\n\n************\n");
+console.log("Channels: "+mics.channels());
+// console.log("Sampling Rate: "+mics.getSamplingRate());
+console.log("Number Of Samples: "+mics.numberOfSamples());
+console.log("\n************\n");
 
 
 ///////////////////////////////////

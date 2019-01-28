@@ -14,11 +14,6 @@ NAN_METHOD(setupMicArray) {
     microphone_array.Setup(&bus);
 }
 
-// TESTING REMOVE LATER CC
-void getMicrophoneArray(){
-    std::cout << "MIRCOPHONE ARRAY EXPORT WORKED HAHAHAH" << std::endl;
-}
-
 // - Calculate delays
 NAN_METHOD(calculateDelays) {
     // if object argument is not given, throw error
@@ -62,7 +57,8 @@ NAN_METHOD(setGain) {
 
 // - Get sampling rate
 NAN_METHOD(getSamplingRate) {
-    if(microphone_array.GetSamplingRate()){
+    // if(microphone_array.GetSamplingRate()){
+    if(true){
         uint32_t samplingRate = microphone_array.SamplingRate();
         info.GetReturnValue().Set(Nan::New(samplingRate));
     }
@@ -85,17 +81,32 @@ NAN_METHOD(showConfiguration){
     microphone_array.ShowConfiguration();
 }
 
+// - Return the number of microphone channels from MATRIX device
+NAN_METHOD(channels){
+    int channels = microphone_array.Channels();
+    info.GetReturnValue().Set(Nan::New(channels));
+}
+
+// - Return the current number of samples
+NAN_METHOD(numberOfSamples){
+    int numberOfSamples = microphone_array.NumberOfSamples();
+    info.GetReturnValue().Set(Nan::New(numberOfSamples));
+}
+
 // ** EXPORTED MICROPHONE ARRAY OBJECT ** //
 NAN_METHOD(microphoneArray) {
-    // Set microphones to use MatrixIOBus bus
-    // microphone_array.Setup(&bus);
-
     // Create object
     v8::Local<v8::Object> obj = Nan::New<v8::Object>();
 
-    // Set micropone configs
+    // microphone methods //
     Nan::Set(obj, Nan::New("setup").ToLocalChecked(),
     Nan::GetFunction(Nan::New<v8::FunctionTemplate>(setupMicArray)).ToLocalChecked());
+
+    Nan::Set(obj, Nan::New("numberOfSamples").ToLocalChecked(),
+    Nan::GetFunction(Nan::New<v8::FunctionTemplate>(numberOfSamples)).ToLocalChecked());
+
+    Nan::Set(obj, Nan::New("channels").ToLocalChecked(),
+    Nan::GetFunction(Nan::New<v8::FunctionTemplate>(channels)).ToLocalChecked());
 
     Nan::Set(obj, Nan::New("calculateDelays").ToLocalChecked(),
     Nan::GetFunction(Nan::New<v8::FunctionTemplate>(calculateDelays)).ToLocalChecked());

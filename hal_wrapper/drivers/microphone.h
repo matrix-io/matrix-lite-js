@@ -4,9 +4,11 @@
 #include <nan.h>
 #include "matrix_hal/microphone_array.h"
 
+
 NAN_METHOD(microphoneArray);
 NAN_METHOD(microphoneCore);
 
-void getMicrophoneArray();
+extern matrix_hal::MicrophoneArray microphone_array;
+
 
 #endif

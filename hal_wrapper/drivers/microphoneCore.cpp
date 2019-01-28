@@ -7,11 +7,9 @@
 #include "matrix_hal/microphone_core.h"
 
 // - Create & set microphones to use MatrixIOBus bus
-NAN_METHOD(setupMicCore) {
-    std::cout << "SETUP MICROPHONE CORE WPORKED HAHHAHAHAH" << std::endl;
-    getMicrophoneArray();
-    // matrix_hal::MicrophoneCore microphone_core(getMicrophoneArray());
-    // microphone_core.Setup(&bus);
+NAN_METHOD(setupMicCore) {        
+    matrix_hal::MicrophoneCore microphone_core(microphone_array);
+    microphone_core.Setup(&bus);
 }
 
 // ** EXPORTED MICROPHONE ARRAY OBJECT ** //
