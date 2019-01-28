@@ -57,13 +57,16 @@ NAN_METHOD(setGain) {
 
 // - Get sampling rate
 NAN_METHOD(getSamplingRate) {
+    uint32_t samplingRate = microphone_array.SamplingRate();
+    info.GetReturnValue().Set(Nan::New(samplingRate));
+
+    // ** Issue with .SamplingRate() ** //
     // if(microphone_array.GetSamplingRate()){
-    if(true){
-        uint32_t samplingRate = microphone_array.SamplingRate();
-        info.GetReturnValue().Set(Nan::New(samplingRate));
-    }
-    else
-        Nan::ThrowTypeError("Could not get sampling rate");
+    //     uint32_t samplingRate = microphone_array.SamplingRate();
+    //     info.GetReturnValue().Set(Nan::New(samplingRate));
+    // }
+    // else
+    //     Nan::ThrowTypeError("Could not get sampling rate");
 }
 
 // - Set sampling rate
@@ -93,6 +96,36 @@ NAN_METHOD(numberOfSamples){
     info.GetReturnValue().Set(Nan::New(numberOfSamples));
 }
 
+// - Update microphone data
+NAN_METHOD(read){
+    microphone_array.Read();
+}
+
+
+
+
+
+// CARLOS EDIT HERE!!!! ///////////////////////
+// - Update microphone data
+NAN_METHOD(at){
+    // if number argument is not given, throw error
+    if (!info[0]->IsNumber() && !info[1]->IsNumber()) {Nan::ThrowTypeError("Arguments must be a valid number");return;}
+    
+    // read & set sampling rate
+    int sample = info[0]->NumberValue();
+    int channel = info[1]->NumberValue();
+
+    int value = microphone_array.At(sample, channel);
+    info.GetReturnValue().Set(Nan::New(value));
+}
+
+
+
+
+
+
+
+
 // ** EXPORTED MICROPHONE ARRAY OBJECT ** //
 NAN_METHOD(microphoneArray) {
     // Create object
@@ -101,6 +134,12 @@ NAN_METHOD(microphoneArray) {
     // microphone methods //
     Nan::Set(obj, Nan::New("setup").ToLocalChecked(),
     Nan::GetFunction(Nan::New<v8::FunctionTemplate>(setupMicArray)).ToLocalChecked());
+
+    Nan::Set(obj, Nan::New("at").ToLocalChecked(),
+    Nan::GetFunction(Nan::New<v8::FunctionTemplate>(at)).ToLocalChecked());
+
+    Nan::Set(obj, Nan::New("read").ToLocalChecked(),
+    Nan::GetFunction(Nan::New<v8::FunctionTemplate>(read)).ToLocalChecked());
 
     Nan::Set(obj, Nan::New("numberOfSamples").ToLocalChecked(),
     Nan::GetFunction(Nan::New<v8::FunctionTemplate>(numberOfSamples)).ToLocalChecked());

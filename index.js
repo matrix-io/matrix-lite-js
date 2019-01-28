@@ -35,9 +35,6 @@ mics.setSamplingRate(8000);// Set sampling rate must come before set gain!
 mics.setGain(12);
 mics.showConfiguration();
 
-console.log("\n\nSAMPLING RATE BELOW");// test
-console.log(mics.getSamplingRate());// test
-
 // beamforming delays
 mics.calculateDelays({
   "azimutal_angle": 0,
@@ -46,17 +43,46 @@ mics.calculateDelays({
   "sound_speed_mmseg": 320 * 1000
 });
 
-// buffer = [mics.channels() + 1]
-// [mics.getSamplingRate() +
-//  mics.numberOfSamples()];
-
-// console.log(buffer);
+var buffer = [
+  [mics.channels() + 1],
+  [mics.getSamplingRate() + mics.numberOfSamples()]
+];
 
 console.log("\n\n************\n");
+console.log(buffer);
 console.log("Channels: "+mics.channels());
-// console.log("Sampling Rate: "+mics.getSamplingRate());
+console.log("Sampling Rate: "+mics.getSamplingRate());
 console.log("Number Of Samples: "+mics.numberOfSamples());
 console.log("\n************\n");
+
+// 
+
+// update current microphone value
+var audioData = "";
+setInterval(function(){
+  // Update microphone values
+  mics.read();
+
+  // Read microphone 1
+  for(s = 0; s < mics.numberOfSamples(); s++){
+    buffer[1][s] = mics.at(s, 1);
+    console.log(buffer[1][s]);
+    audioData += buffer[1][s] + "\n";
+  };
+},30);
+
+// Wait & then save mic data to file
+console.log("Recording Starting");
+setTimeout(function(){
+  var fs = require('fs');
+  var wstream = fs.createWriteStream('mics.txt');
+
+  wstream.write(audioData);
+  wstream.end();
+
+  console.log("Recording Finished!");
+  // process.exit();
+},1000);
 
 
 ///////////////////////////////////
