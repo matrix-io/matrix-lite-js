@@ -98,14 +98,13 @@ NAN_METHOD(numberOfSamples){
 
 // - Update microphone data
 NAN_METHOD(read){
-    microphone_array.Read();
+    bool updated = microphone_array.Read();
+    info.GetReturnValue().Set(Nan::New(updated));
 }
 
 
 
-
-
-// CARLOS EDIT HERE!!!! ///////////////////////
+// CARLOS EDIT HERE!!!! vvvvvvvvvvvvvvv ///////////////////////
 // - Update microphone data
 NAN_METHOD(at){
     // if number argument is not given, throw error
@@ -119,10 +118,7 @@ NAN_METHOD(at){
     info.GetReturnValue().Set(Nan::New(value));
 }
 
-
-
-
-
+// CARLOS EDIT HERE!!!! ^^^^^^^^^^^^^^^ ///////////////////////
 
 
 

@@ -1,3 +1,4 @@
+// testing exposed c++
 const matrix = require('./build/Release/addon');
 
 // Returns & logs a string (test function)
@@ -12,14 +13,13 @@ var leds = []; // array representing each LED
 for (i = 0; i < everloop.length; i++){
   // Push new color configuration (0-255)
   leds.push({
-    red: 0,
-    green: 100,
-    blue: 20,
-    white: 0
+    red: 1,
+    blue: 1
   });
 }
 // Write configuration to everloop
 everloop.set(leds);
+
 
 ////////////////////////
 // MICROPHONE EXAMPLE \\
@@ -31,8 +31,8 @@ mics.setup();
 micsCore.setup();
 
 // set config
-mics.setSamplingRate(8000);// Set sampling rate must come before set gain!
-mics.setGain(12);
+mics.setSamplingRate(16000);// Set sampling rate must come before set gain!
+mics.setGain(1);
 mics.showConfiguration();
 
 // beamforming delays
@@ -43,11 +43,6 @@ mics.calculateDelays({
   "sound_speed_mmseg": 320 * 1000
 });
 
-var buffer = [
-  [mics.channels() + 1],
-  [mics.getSamplingRate() + mics.numberOfSamples()]
-];
-
 console.log("\n\n************\n");
 console.log(buffer);
 console.log("Channels: "+mics.channels());
@@ -55,35 +50,69 @@ console.log("Sampling Rate: "+mics.getSamplingRate());
 console.log("Number Of Samples: "+mics.numberOfSamples());
 console.log("\n************\n");
 
-// 
+var buffer = [
+  [mics.channels() + 1],
+  [mics.getSamplingRate() + mics.numberOfSamples()]
+];
 
-// update current microphone value
+// RECORD MICROPHONES
+// initial vars
 var audioData = "";
-setInterval(function(){
-  // Update microphone values
-  mics.read();
-
-  // Read microphone 1
-  for(s = 0; s < mics.numberOfSamples(); s++){
-    buffer[1][s] = mics.at(s, 1);
-    console.log(buffer[1][s]);
-    audioData += buffer[1][s] + "\n";
-  };
-},30);
-
-// Wait & then save mic data to file
+seconds_to_record = 2;
+var samples = 0;
 console.log("Recording Starting");
-setTimeout(function(){
-  var fs = require('fs');
-  var wstream = fs.createWriteStream('mics.txt');
 
-  wstream.write(audioData);
-  wstream.end();
+//open file
+var fs = require('fs');
+var wstream = fs.createWriteStream('mics.txt');
 
+// record
+for (let s = 0; s < seconds_to_record; s++) {
+  while(true){
+    mics.read();
+    // For number of samples
+    for (let s = 0; s < mics.numberOfSamples(); s++) {
+      // For each microphone
+      for (let c = 0; c < 1; c++) {
+        // Send microphone data to buffer
+        // buffer[c][samples] = mics.at(s, c);
+        audioData += mics.at(s, c) + "\n";
+        console.log( mics.at(s, c));
+        // console.log(mics.at(s, c));
+      }
+      // Increment samples for buffer write
+      samples++;
+    }
+
+    if (samples >= mics.getSamplingRate()) {
+      // Set samples to zero for loop to fill buffer
+      samples = 0;
+      break;
+    }
+  }
+}
+
+wstream.write(audioData);
+console.log("done");
+// end stream
+wstream.end(function(){
   console.log("Recording Finished!");
-  // process.exit();
-},1000);
+  process.exit();
+});
 
+
+// while (true){
+  // // Record audio
+  // if (mics.read()) {
+  //   // Read 1 microphone data
+  //   for(s = 0; s < mics.numberOfSamples(); s++){
+  //     buffer[1][s] = mics.at(s, 1);
+  //     console.log(buffer[1][s]);
+  //     // console.log(Date.now());
+  //     audioData += buffer[1][s] + "\n";
+  //   };
+  // }
+// }
 
 ///////////////////////////////////
 // GPIO DIGITAL SET/READ EXAMPLE \\
