@@ -64,8 +64,8 @@ cd matrix-lite-js
 npm install
 ```
 
-**Run index.js**
-Although it's not finished, you can play around with the example code in index.js
+**Run example**
+Although it's not finished, you can play around with the example code in `hal_wrapper_examples.js`
 ```
-node index.js
+node hal_wrapper_examples.js
 ```
