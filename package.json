@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile": "node-gyp rebuild",
-    "test": "node-gyp rebuild && node index.js",
-    "start": "node index.js"
+    "build": "node-gyp rebuild",
+    "test": "node-gyp rebuild && node index.js"
   },
   "gypfile": true,
   "keywords": [],
