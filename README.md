@@ -64,6 +64,11 @@ cd matrix-lite-js
 npm install
 ```
 
+**Compile Hal Wrapper**
+```
+npm run build
+```
+
 **Run example**
 Although it's not finished, you can play around with the example code in `hal_wrapper_examples.js`
 ```
