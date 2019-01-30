@@ -1,4 +1,4 @@
-#ifndef GPIO_H  // Prevent duplicate declarations
+#ifndef GPIO_H
 #define GPIO_H
 
 #include <nan.h>

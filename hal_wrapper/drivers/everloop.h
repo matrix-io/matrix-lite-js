@@ -1,4 +1,4 @@
-#ifndef EVERLOOP_H  // Prevent duplicate declarations
+#ifndef EVERLOOP_H
 #define EVERLOOP_H
 
 #include <nan.h>

@@ -2,7 +2,6 @@
 #include "matrix.h"
 #include "drivers/everloop.h"
 #include "drivers/gpio.h"
-#include "drivers/microphone.h"
 #include "drivers/sensors/sensors.h"
 
 // Declare bus for MATRIX hardware communication
@@ -19,10 +18,6 @@ NAN_MODULE_INIT(Initialize) {
 
     // Export function that returns GPIO object
     NAN_EXPORT(target, gpio);
-
-    // Export function that returns Microphone objects
-    NAN_EXPORT(target, microphoneArray);
-    NAN_EXPORT(target, microphoneCore);
     
     // Export function that returns Sensor objects
     NAN_EXPORT(target, imu);

@@ -1,4 +1,4 @@
-#ifndef MATRIX_H  // Prevent duplicate declarations
+#ifndef MATRIX_H
 #define MATRIX_H
 
 #include "matrix_hal/matrixio_bus.h"

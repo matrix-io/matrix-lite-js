@@ -1,4 +1,4 @@
-#ifndef SENSORS_SENSOR_H  // Prevent duplicate declarations
+#ifndef SENSORS_SENSOR_H
 #define SENSORS_SENSOR_H
 
 #include <nan.h>

@@ -11,9 +11,13 @@ This roadmap is for finishing the basic HAL implementation. A new roadmap, for t
   - [x] UV
 - [x] GPIO Digital Write/Read
 - [ ] GPIO PWM
-- [ ] Microphone
+- [ ] Microphone (will be implemented through MATRIX Kernel modules)
 
-# Raspberry Pi Dependencies
+# Node.js Module Roadmap
+This roadmap is for implementing a cleaner module for what's completed in the roadmap above.
+- [ ] Leds
+
+# Installation
 Ensure you have a Raspberry Pi, attached with a MATRIX device, that's flashed with [Raspbian Stretch](https://www.raspberrypi.org/blog/raspbian-stretch/).
 
 ## 1. Install MATRIX HAL
@@ -61,6 +65,7 @@ npm install
 ```
 
 **Run index.js**
+Although it's not finished, you can play around with the example code in index.js
 ```
 node index.js
 ```
