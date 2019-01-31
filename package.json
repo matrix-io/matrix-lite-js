@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "color": "^3.1.0",
     "nan": "^2.11.1",
     "node-gyp": "^3.8.0"
   }
