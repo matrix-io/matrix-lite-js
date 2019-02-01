@@ -10,6 +10,7 @@ This roadmap is for achieving a basic implementation of the checklist below. **A
   - [x] Pressure
   - [x] UV
 - [ ] GPIO
+- [ ] Microphones
 
 # Dependancies
 Ensure you have a Raspberry Pi, attached with a MATRIX device, that's flashed with [Raspbian Stretch](https://www.raspberrypi.org/blog/raspbian-stretch/).
@@ -30,5 +31,33 @@ npm init -y
 ```
 ## 3. Install matrix-lite-js
 ```
-npm install matrix-lite --save
+npm install @matrix-io/matrix-lite --save
 ```
+
+# Usage
+## Everloop
+```js
+var matrix = require("matrix-lite");
+
+// A string sets all LEDs
+// Below are different ways of expressing a color
+matrix.led.set('blue');
+matrix.led.set("rgb(0,0,255)");
+matrix.led.set("#0000ff");
+
+// An array sets individual LEDs
+matrix.led.set(["red", "gold", "purple", "#0000ff", "#6F41C1", "blue"]);
+```
+
+## Sensors
+```js
+var matrix = require("matrix-lite");
+
+var imu = matrix.imu.read();
+var uv = matrix.uv.read();
+var humidity = matrix.humidity.read();
+var pressure = matrix.pressure.read();
+
+console.log(imu,uv,humidity, pressure);
+```
+ 
