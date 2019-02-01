@@ -8,6 +8,7 @@ clone:
       - echo "//registry.npmjs.org/:_authToken=$${NPM_TOKEN}" > /root/.npmrc
       - npm publish --scope @admobilize --access public dist/admobilizeapis
 
+pipeline:
   test-build:
     when:
       event: [push]
