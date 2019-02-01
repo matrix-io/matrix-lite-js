@@ -6,7 +6,7 @@ pipeline:
     secrets: [npm_token]
     commands:
       - echo "//registry.npmjs.org/:_authToken=$${NPM_TOKEN}" > /root/.npmrc
-      - npm publish --scope @admobilize --access public dist/admobilizeapis
+      - npm publish --scope @admobilize --access public ./
 
 
   notify-always:
