@@ -1,5 +1,4 @@
-clone:
-  publish-npm:
+publish-npm:
     when:
       event: [tag]
     image: gcr.io/admobilize-testing/gce-node:06bfcecd
