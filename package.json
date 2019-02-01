@@ -1,5 +1,5 @@
 {
-  "name": "@matrix-io/matrix-lite", 
+  "name": "matrix-lite", 
   "version": "0.1.1",
   "description": "",
   "main": "index.js",
