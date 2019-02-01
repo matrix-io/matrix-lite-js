@@ -37,21 +37,21 @@ npm install @matrix-io/matrix-lite --save
 # Usage
 ## Everloop
 ```js
-var matrix = require("matrix-lite");
+var matrix = require('matrix-lite');
 
 // A string sets all LEDs
 // Below are different ways of expressing a color
 matrix.led.set('blue');
-matrix.led.set("rgb(0,0,255)");
-matrix.led.set("#0000ff");
+matrix.led.set('rgb(0,0,255)');
+matrix.led.set('#0000ff');
 
 // An array sets individual LEDs
-matrix.led.set(["red", "gold", "purple", "#0000ff", "#6F41C1", "blue"]);
+matrix.led.set(['red', 'gold', 'purple', '#0000ff', '#6F41C1', 'blue']);
 ```
 
 ## Sensors
 ```js
-var matrix = require("matrix-lite");
+var matrix = require('matrix-lite');
 
 var imu = matrix.imu.read();
 var uv = matrix.uv.read();
