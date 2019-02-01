@@ -9,6 +9,7 @@
   },
   "gypfile": true,
   "keywords": [],
+  "build": "node-gyp rebuild && node index.js",
   "author": "",
   "license": "ISC",
   "dependencies": {
