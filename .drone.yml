@@ -43,4 +43,4 @@ clone:
     username: drone-ci-builder
     channel: notifications
     template: |
-      :radioactive_sign: A new matrix-lite-js NPM package was published.
+      :radioactive_sign: matrix-lite-js NPM package was published.
