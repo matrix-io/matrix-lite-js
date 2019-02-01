@@ -1,3 +1,6 @@
+// The examples here are for interfacing directly with the exposed HAL functions.
+
+
 // testing exposed c++
 const matrix = require('./build/Release/addon');
 
