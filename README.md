@@ -34,10 +34,10 @@ npm init -y
 npm install @matrix-io/matrix-lite --save
 ```
 
-# Usage
+# Usage (may change during development)
 ## Everloop
 ```js
-var matrix = require('matrix-lite');
+var matrix = require('@matrix-io/matrix-lite');
 
 // A string sets all LEDs
 // Below are different ways of expressing a color
@@ -45,19 +45,28 @@ matrix.led.set('blue');
 matrix.led.set('rgb(0,0,255)');
 matrix.led.set('#0000ff');
 
+// LEDs off
+matrix.led.set('black');
+
 // An array sets individual LEDs
 matrix.led.set(['red', 'gold', 'purple', '#0000ff', '#6F41C1', 'blue']);
+
+// Get LED count
+console.log("This device has " + matrix.led.length + ' LEDs');
 ```
 
 ## Sensors
 ```js
-var matrix = require('matrix-lite');
+var matrix = require('@matrix-io/matrix-lite');
 
-var imu = matrix.imu.read();
-var uv = matrix.uv.read();
-var humidity = matrix.humidity.read();
-var pressure = matrix.pressure.read();
-
-console.log(imu,uv,humidity, pressure);
+// Sensors will update with each .read() call
+setInterval(function(){
+  var imu = matrix.imu.read();
+  var uv = matrix.uv.read();
+  var humidity = matrix.humidity.read();
+  var pressure = matrix.pressure.read();
+  
+  console.log(imu,uv,humidity, pressure);
+},50);
 ```
  
