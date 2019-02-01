@@ -1,0 +1,46 @@
+clone:
+  publish-npm:
+    when:
+      event: [tag]
+    image: gcr.io/admobilize-testing/gce-node:06bfcecd
+    secrets: [npm_token]
+    commands:
+      - echo "//registry.npmjs.org/:_authToken=$${NPM_TOKEN}" > /root/.npmrc
+      - npm publish --scope @admobilize --access public dist/admobilizeapis
+
+  test-build:
+    when:
+      event: [push]
+    image: node:10.15.0
+    commands:
+      - npm test
+      - npm install
+
+  notify-always:
+    image: plugins/slack
+    secrets: [slack_webhook]
+    username: drone-ci-builder
+    channel: notifications
+    when:
+      status: [ success, failure ]
+    template: |
+      {{#success build.status}}
+        {{build.author}} just built `{{repo.name}}:{{build.branch}}` from <${DRONE_COMMIT_LINK}|#{{truncate build.commit 8}}>
+        :new: {{build.message}}
+      {{else}}
+        {{build.author}} just broke the build of `{{repo.name}}:{{build.branch}}` with <${DRONE_COMMIT_LINK}|#{{truncate build.commit 8}}>
+        :new: :zombie: {{build.message}}
+      {{/success}}
+      :stopwatch: {{ since build.started}}
+      :gear: {{build.link}}
+
+  notify-new:
+    when:
+      event: [tag]
+      status: success
+    image: plugins/slack
+    secrets: [slack_webhook]
+    username: drone-ci-builder
+    channel: notifications
+    template: |
+      :radioactive_sign: A new matrix-lite-js NPM package was published.
