@@ -1,5 +1,5 @@
 pipeline:
-  publish-npm:
+  publish-npm: 
     when:
       event: [tag]
     image: gcr.io/admobilize-testing/gce-node:06bfcecd
@@ -7,13 +7,8 @@ pipeline:
     commands:
       - echo "//registry.npmjs.org/:_authToken=$${NPM_TOKEN}" > /root/.npmrc
       - npm publish --scope @admobilize --access public dist/admobilizeapis
-  test-build:
-    when:
-      event: [push]
-    image: node:10.15.0
-    commands:
-      - npm test
-      - npm install
+
+
   notify-always:
     image: plugins/slack
     secrets: [slack_webhook]
