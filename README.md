@@ -2,7 +2,7 @@
  MATRIX Lite JS is a Node.js wrapper that allows users to interface with MATRIX HAL, without having to code in C++.
 
 # HAL Wrapper Roadmap
-This roadmap is for finishing the basic HAL implementation. A new roadmap, for transitioning to a Node.js module, will be started at a later date.
+This roadmap is for finishing the basic HAL implementation.
 - [x] Leds
 - [x] Sensors
   - [x] IMU
@@ -14,8 +14,15 @@ This roadmap is for finishing the basic HAL implementation. A new roadmap, for t
 - [ ] Microphone (will be implemented through MATRIX Kernel modules)
 
 # Node.js Module Roadmap
-This roadmap is for implementing a cleaner module for what's completed in the roadmap above.
-- [ ] Leds
+Transitioning the HAL Wrapper to a cleaner Node.js module.
+- [ ] Leds (working, but not completed)
+- [x] Sensors
+  - [x] IMU
+  - [x] Humidity
+  - [x] Pressure
+  - [x] UV
+- [ ] GPIO Digital Write/Read
+- [ ] GPIO PWM
 
 # Installation
 Ensure you have a Raspberry Pi, attached with a MATRIX device, that's flashed with [Raspbian Stretch](https://www.raspberrypi.org/blog/raspbian-stretch/).
