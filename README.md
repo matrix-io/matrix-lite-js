@@ -66,7 +66,7 @@ setInterval(function(){
   var humidity = matrix.humidity.read();
   var pressure = matrix.pressure.read();
   
-  console.log(imu,uv,humidity, pressure);
+  console.log(imu, uv, humidity, pressure);
 },50);
 ```
  
