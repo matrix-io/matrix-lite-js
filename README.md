@@ -1,5 +1,5 @@
 # MATRIX-Lite-JS
- MATRIX Lite JS is an NPM package that allows users to interface with MATRIX HAL, without having to code in C++.
+MATRIX Lite JS is an npm package that allows users to interface with MATRIX HAL, without having to code in C++.
 
 # Roadmap
 This roadmap is for achieving a basic implementation of the checklist below. **As this module develops, the api will improve and may change.**
