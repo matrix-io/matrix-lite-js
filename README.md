@@ -60,13 +60,38 @@ console.log("This device has " + matrix.led.length + ' LEDs');
 var matrix = require('@matrix-io/matrix-lite');
 
 // Sensors will update with each .read() call
+var imu, uv, humidity, pressure;
 setInterval(function(){
-  var imu = matrix.imu.read();
-  var uv = matrix.uv.read();
-  var humidity = matrix.humidity.read();
-  var pressure = matrix.pressure.read();
+  imu = matrix.imu.read();
+  uv = matrix.uv.read();
+  humidity = matrix.humidity.read();
+  pressure = matrix.pressure.read();
   
   console.log(imu, uv, humidity, pressure);
 },50);
 ```
  
+# Building Locally For Development
+Below are the steps to building MATRIX-Lite locally. Each step should take place on your raspberry pi
+
+Download the matrix-lite-js repository
+```bash
+git clone https://github.com/matrix-io/matrix-lite-js
+```
+
+Install Node.js
+```bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+. ~/.bashrc
+nvm install node
+```
+
+Install Node.js dependencies
+```bash
+npm install
+```
+
+If you need to edit any C++ files in the `hal-wrapper` folder, use the following to compile your changes.
+```bash
+npm run build
+```
