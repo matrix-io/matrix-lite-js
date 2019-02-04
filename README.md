@@ -9,7 +9,7 @@ This roadmap is for achieving a basic implementation of the checklist below. **A
   - [x] Humidity
   - [x] Pressure
   - [x] UV
-- [ ] GPIO
+- [x] GPIO
 - [ ] Microphones
 
 # Dependencies
