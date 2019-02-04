@@ -70,6 +70,38 @@ setInterval(function(){
   console.log(imu, uv, humidity, pressure);
 },50);
 ```
+
+## GPIO
+```js
+// Read GPIO pin 0 (digital)
+matrix.gpio.setFunction(0, 'DIGITAL');
+matrix.gpio.setMode(0, 'input');
+console.log(matrix.gpio.getDigital(0));
+
+// Set GPIO pin 1 (digital)
+matrix.gpio.setFunction(1, 'DIGITAL');
+matrix.gpio.setMode(1, 'output');
+matrix.gpio.setDigital(1, 'ON')
+
+// Set GPIO pin 2 (PWM)
+matrix.gpio.setFunction(2, 'PWM');
+matrix.gpio.setMode(2, 'output');
+matrix.gpio.setPWM({
+  pin: 2,
+  percentage: 25,
+  frequency: 50 // min 36
+});
+
+// Set Servo Angle pin 3
+matrix.gpio.setFunction(3, 'PWM');
+matrix.gpio.setMode(3, 'output');
+matrix.gpio.setServoAngle({
+  pin: 3,
+  angle: 90,
+  //minimum pulse width for a PWM wave (in milliseconds)
+  min_pulse_ms: 0.8
+});
+```
  
 # Building Locally For Development
 Below are the steps to building MATRIX-Lite locally. Each step should take place on your raspberry pi
