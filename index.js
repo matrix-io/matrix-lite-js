@@ -12,7 +12,8 @@ function exported(){
     'imu':      hal.imu(),
     'humidity': hal.humidity(),
     'pressure': hal.pressure(),
-    'uv':       hal.uv()
+    'uv':       hal.uv(),
+    'info':     hal.info()
   }
 
   return matrixLite;
