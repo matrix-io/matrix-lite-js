@@ -1,5 +1,7 @@
 # MATRIX-Lite-JS
-MATRIX Lite JS is an [npm package](https://www.npmjs.com/package/@matrix-io/matrix-lite) that allows users of varying skill levels to easily program their MATRIX Device. This is achieved by creating a Node.js addon for [MATRIX HAL](https://matrix-io.github.io/matrix-documentation/matrix-hal/overview/) which lets you call C++ functions with JavaScript.
+MATRIX Lite JS is an [npm package](https://www.npmjs.com/package/@matrix-io/matrix-lite) that allows users of varying skill levels to easily program their MATRIX Device.
+
+ <!-- This is mainly done by creating a Node.js addon for [MATRIX HAL](https://matrix-io.github.io/matrix-documentation/matrix-hal/overview/) which lets you call C++ functions with JavaScript. -->
 
 # Roadmap
 This roadmap is for achieving a basic implementation of the checklist below. **As this package develops, the API will improve and may change.**
@@ -11,6 +13,8 @@ This roadmap is for achieving a basic implementation of the checklist below. **A
   - [x] UV
 - [x] GPIO
 - [ ] Microphones
+  - [ ] Hal Mics
+  - [ ] Alsa Mics
 
 # Dependencies
 Ensure you have a Raspberry Pi, attached with a MATRIX device, that's flashed with [Raspbian Stretch](https://www.raspberrypi.org/blog/raspbian-stretch/).
