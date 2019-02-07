@@ -1,4 +1,6 @@
 hal = require('./build/Release/addon');
+hal.info = hal.info();
+
 var led = require('./lib/led.js');
 var gpio = require('./lib/gpio.js');
 var alsa = require('./lib/alsa.js');
@@ -13,7 +15,7 @@ function exported(){
     'humidity': hal.humidity(),
     'pressure': hal.pressure(),
     'uv':       hal.uv(),
-    'info':     hal.info()
+    'info':     hal.info
   }
 
   return matrixLite;

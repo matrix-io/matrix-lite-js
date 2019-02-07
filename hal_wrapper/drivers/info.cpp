@@ -3,7 +3,7 @@
 #include "info.h"
 #include <v8.h>
 
-// - Detect if using bus or kernel module
+// - Detect if using bus or kernel modules
 NAN_METHOD(isDirectBus){
   if(!bus.IsDirectBus())
     info.GetReturnValue().Set(false);
