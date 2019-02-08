@@ -77,6 +77,8 @@ setInterval(function(){
 
 ## GPIO
 ```js
+var matrix = require('@matrix-io/matrix-lite');
+
 // Read GPIO pin 0 (digital)
 matrix.gpio.setFunction(0, 'DIGITAL');
 matrix.gpio.setMode(0, 'input');
