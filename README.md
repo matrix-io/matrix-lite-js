@@ -14,7 +14,7 @@ This roadmap is for achieving a basic implementation of the checklist below. **A
 - [x] GPIO
 - [ ] Microphones
   - [ ] Hal Mics
-  - [ ] Alsa Mics
+  - [x] Alsa Mics
 
 # Dependencies
 Ensure you have a Raspberry Pi, attached with a MATRIX device, that's flashed with [Raspbian Stretch](https://www.raspberrypi.org/blog/raspbian-stretch/).
@@ -104,11 +104,40 @@ matrix.gpio.setMode(3, 'output');
 matrix.gpio.setServoAngle({
   pin: 3,
   angle: 90,
-  //minimum pulse width for a PWM wave (in milliseconds)
+  // minimum pulse width for a PWM wave (in milliseconds)
   min_pulse_ms: 0.8
 });
 ```
- 
+
+## Alsa
+### Microphone
+[npm mic](https://www.npmjs.com/package/mic) is used grab our microphone data from alsa.
+```js
+// Record mic input to file
+var matrix = require("@matrix-io/matrix-lite");
+var fs = require('fs');
+
+var mic = matrix.alsa.mic();// use default settings
+var mic = matrix.alsa.mic({ // or configure settings
+  rate: '16000',
+  debug: true,
+  exitOnSilence: 6,
+  // up to 8 channels
+  channels: '1'
+});
+
+// Pipe mic data to file
+var micStream = mic.getAudioStream();
+var file = fs.WriteStream('output.raw');
+micStream.pipe(file);
+
+micStream.on('startComplete', function() {
+  setTimeout(mic.stop, 5000);
+});
+
+mic.start();
+```
+
 # Building Locally For Development
 Below are the steps to building MATRIX-Lite locally. Each step should take place on your raspberry pi
 
