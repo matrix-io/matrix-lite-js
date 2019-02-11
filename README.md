@@ -41,22 +41,36 @@ npm install @matrix-io/matrix-lite --save
 # Usage (may change during development)
 ## Everloop
 ```js
-var matrix = require('@matrix-io/matrix-lite');
-
-// A string sets all LEDs
-// Below are different ways of expressing a color
-matrix.led.set('blue');
-matrix.led.set('rgb(0,0,255)');
-matrix.led.set('#0000ff');
-
-// LEDs off
-matrix.led.set('black');
-
-// An array sets individual LEDs
-matrix.led.set(['red', 'gold', 'purple', '#0000ff', '#6F41C1', 'blue']);
+var matrix = require("@matrix-io/matrix-lite");
 
 // Get LED count
 console.log("This device has " + matrix.led.length + ' LEDs');
+
+// A single string or object sets all LEDs
+// Below are different ways of expressing a color (number values are from 0-255)
+matrix.led.set('blue');
+matrix.led.set('rgb(0,0,255)');
+matrix.led.set('#0000ff');
+matrix.led.set({r:0, g:0, b:255, w:0});// objects can set white
+
+// LEDs off
+matrix.led.set('black');
+matrix.led.set([]);
+matrix.led.set();
+matrix.led.set({});
+
+// Arrays set individual LEDs
+matrix.led.set(['red', 'gold', 'purple', {}, , '#6F41C1', 'blue', {g:255}]);
+
+// Arrays can simulate motion
+everloop = new Array(matrix.led.length).fill({});
+everloop[0] = {b:100};
+
+setInterval(function(){
+  var lastColor = everloop.shift();
+  everloop.push(lastColor);
+  matrix.led.set(everloop);
+},50);
 ```
 
 ## Sensors
