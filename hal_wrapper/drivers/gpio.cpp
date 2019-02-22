@@ -63,7 +63,7 @@ NAN_METHOD(SetPWM){
 }
 
 // - Set Servo angle through PWM
-// Parameters: float frequency, float percentage, int pin (0-15)
+// Parameters: float angle, float min_pulse_ms, int pin (0-15)
 NAN_METHOD(SetServoAngle){
     // for each required argument
     int args = 3;
