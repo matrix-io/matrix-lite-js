@@ -153,7 +153,11 @@ mic.start();
 ```
 
 # Building Locally For Development
-Below are the steps to building MATRIX-Lite locally. Each step should take place on your raspberry pi
+If you want to contribute to matrix-lite-js, below are the steps to build locally. Each step should take place on your Raspberry Pi.
+
+Have MATRIX HAL installed
+
+https://matrix-io.github.io/matrix-documentation/matrix-hal/getting-started/installation-package/
 
 Download the matrix-lite-js repository
 ```bash
