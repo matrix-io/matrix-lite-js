@@ -16,7 +16,7 @@ This roadmap is for achieving a basic implementation of the checklist below. **A
   - [ ] Hal Mics
   - [x] Alsa Mics
 
-# Dependencies
+# Installation
 Ensure you have a Raspberry Pi, attached with a MATRIX device, that's flashed with [Raspbian Stretch](https://www.raspberrypi.org/blog/raspbian-stretch/).
 
 ## 1. Install MATRIX HAL
