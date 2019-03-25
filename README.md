@@ -38,7 +38,7 @@ npm init -y
 npm install @matrix-io/matrix-lite --save
 ```
 
-# Usage (may change during development)
+# Usage (may change in the future)
 ## Everloop
 ```js
 var matrix = require("@matrix-io/matrix-lite");
