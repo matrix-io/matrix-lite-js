@@ -176,6 +176,11 @@ Install Node.js dependencies
 npm install
 ```
 
+From this point, you can treat the repository as a normal module. Any Node.js script can include it.
+```js
+var matrix = require('PATH_TO_REPO_HERE/matrix-lite')
+```
+
 If you need to edit any C++ files in the `hal-wrapper` folder, use the following to compile your changes.
 ```bash
 npm run build
