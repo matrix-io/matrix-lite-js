@@ -21,10 +21,6 @@ NAN_METHOD(Set){
     
     // grab array of LED RGBW states
     v8::Local<v8::Array> leds = v8::Local<v8::Array>::Cast(info[0]);
-    
-    // if LED array != LEDs on MATRIX device, throw error
-    // REMOVED FOR TESTING
-    // if (leds->Length() != ledCount) {Nan::ThrowTypeError("Argument array size != LEDs on MATRIX device");return;}
 
     // MATRIX EVERLOOP LOGIC //
     // for each LED
