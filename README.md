@@ -178,7 +178,7 @@ npm install
 
 From this point, you can treat the repository as a normal module. Any Node.js script can include it.
 ```js
-var matrix = require('PATH_TO_REPO_HERE/matrix-lite')
+var matrix = require('PATH_TO_FOLDER/matrix-lite-js')
 ```
 
 If you need to edit any C++ files in the `hal-wrapper` folder, use the following to compile your changes.
