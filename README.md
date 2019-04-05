@@ -60,7 +60,7 @@ matrix.led.set();
 matrix.led.set({});
 
 // Arrays set individual LEDs
-matrix.led.set(['red', 'gold', 'purple', {}, , '#6F41C1', 'blue', {g:255}]);
+matrix.led.set(['red', 'gold', 'purple', {}, 'black', '#6F41C1', 'blue', {g:255}]);
 
 // Arrays can simulate motion
 everloop = new Array(matrix.led.length).fill({});
