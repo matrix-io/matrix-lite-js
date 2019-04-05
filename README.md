@@ -51,7 +51,7 @@ console.log("This device has " + matrix.led.length + ' LEDs');
 matrix.led.set('blue');
 matrix.led.set('rgb(0,0,255)');
 matrix.led.set('#0000ff');
-matrix.led.set({r:0, g:0, b:255, w:0});// objects can set white
+matrix.led.set({r:0, g:0, b:255, w:0}); // objects can set white
 
 // LEDs off
 matrix.led.set('black');
