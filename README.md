@@ -27,7 +27,7 @@ https://matrix-io.github.io/matrix-documentation/matrix-hal/getting-started/inst
 ```bash
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 . ~/.bashrc
-nvm install node
+nvm install 11.0.0
 
 mkdir myApp
 cd myApp
@@ -168,7 +168,7 @@ Install Node.js
 ```bash
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 . ~/.bashrc
-nvm install node
+nvm install 11.0.0
 ```
 
 Install Node.js dependencies
