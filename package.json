@@ -1,6 +1,6 @@
 {
   "name": "@matrix-io/matrix-lite",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,6 @@
     "loudness": "^0.3.0",
     "mic": "^2.1.2",
     "nan": "^2.11.1",
-    "node-gyp": "^3.8.0"
+    "node-gyp": "^4.0.0"
   }
 }
