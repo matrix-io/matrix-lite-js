@@ -23,20 +23,24 @@ NAN_METHOD(Set){
     v8::Local<v8::Array> leds = v8::Local<v8::Array>::Cast(info[0]);
 
     // MATRIX EVERLOOP LOGIC //
-    // for each LED
+    // for each LED object
     int red, green, blue, white;
-    for (int i = 0; i < leds->Length(); i++) {
+    for (uint i = 0; i < leds->Length(); i++) {
         // grab LED object properties
-        v8::Local<v8::Object> newLed = leds->Get(i)->ToObject();
+        v8::Local<v8::Value> jsValue = Nan::Get(leds, i).ToLocalChecked();
+        v8::Local<v8::Object> newLed = Nan::To<v8::Object>(jsValue).ToLocalChecked();
+
         v8::Local<v8::String> redProp = Nan::New("red").ToLocalChecked();
         v8::Local<v8::String> greenProp = Nan::New("green").ToLocalChecked();
         v8::Local<v8::String> blueProp = Nan::New("blue").ToLocalChecked();
         v8::Local<v8::String> whiteProp = Nan::New("white").ToLocalChecked();
+
         // grab RGBW values
-        red = Nan::Get(newLed, redProp).ToLocalChecked()->NumberValue();
-        green = Nan::Get(newLed, greenProp).ToLocalChecked()->NumberValue();
-        blue = Nan::Get(newLed, blueProp).ToLocalChecked()->NumberValue();
-        white = Nan::Get(newLed, whiteProp).ToLocalChecked()->NumberValue();
+        red   = Nan::To<int>(Nan::Get(newLed, redProp).ToLocalChecked()).FromJust();
+        green = Nan::To<int>(Nan::Get(newLed, greenProp).ToLocalChecked()).FromJust();
+        blue  = Nan::To<int>(Nan::Get(newLed, blueProp).ToLocalChecked()).FromJust();
+        white = Nan::To<int>(Nan::Get(newLed, whiteProp).ToLocalChecked()).FromJust();
+
         // set new LED state
         everloop_image.leds[i].red = red;
         everloop_image.leds[i].green = green;

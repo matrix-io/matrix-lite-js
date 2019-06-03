@@ -14,8 +14,8 @@ NAN_METHOD(SetMode){
     // if argument 1 & 2 are not a number, throw error
     if (!info[0]->IsNumber() && !info[1]->IsNumber()) {Nan::ThrowTypeError("Arguments 1 & 2 must be a number");return;}
     // get user arguments
-    int pin = info[0]->NumberValue();
-    int mode = info[1]->NumberValue();
+    int pin = Nan::To<int>(info[0]).FromJust();
+    int mode = Nan::To<int>(info[1]).FromJust();
 
     // if argument 2 is not 0 (INPUT) or 1 (OUTPUT), throw error
     if (mode != 1 && mode != 0){Nan::ThrowTypeError("Argument 2 must be 0 or 1");return;}
@@ -30,8 +30,8 @@ NAN_METHOD(SetFunction){
     if (!info[0]->IsNumber() && !info[1]->IsNumber()) {Nan::ThrowTypeError("Arguments 1 & 2 must be a number");return;}
 
     // get user arguments
-    int pin = info[0]->NumberValue();
-    int pinFunction = info[1]->NumberValue();
+    int pin = Nan::To<int>(info[0]).FromJust();
+    int pinFunction = Nan::To<int>(info[1]).FromJust();
 
     // if argument 2 is not 0 (DIGITAL) or 1 (PWM), throw error
     if (pinFunction != 1 && pinFunction != 0){Nan::ThrowTypeError("Argument 2 must be 0 or 1");return;}
@@ -50,9 +50,9 @@ NAN_METHOD(SetPWM){
     }  
 
     // get user arguments
-    float frequency = info[0]->NumberValue();
-    float percentage = info[1]->NumberValue();
-    uint16_t pin = info[2]->NumberValue();
+    float frequency = Nan::To<double>(info[0]).FromJust();
+    float percentage = Nan::To<double>(info[1]).FromJust();
+    uint16_t pin = Nan::To<uint32_t>(info[2]).FromJust();
 
     // std::cout << "frequency: " << frequency << std::endl;
     // std::cout << "percentage: " << percentage << std::endl;
@@ -73,9 +73,9 @@ NAN_METHOD(SetServoAngle){
     }  
 
     // get user arguments
-    float angle = info[0]->NumberValue();
-    float min_pulse_ms = info[1]->NumberValue();
-    uint16_t pin = info[2]->NumberValue();
+    float angle = Nan::To<double>(info[0]).FromJust();
+    float min_pulse_ms = Nan::To<double>(info[1]).FromJust();
+    uint16_t pin = Nan::To<uint32_t>(info[2]).FromJust();
 
     // std::cout << "pin: " << pin << std::endl;
     // std::cout << "angle: " << angle << std::endl;
@@ -90,7 +90,7 @@ NAN_METHOD(GetValue){
     // if first argument is not a number, throw error
     if (!info[0]->IsNumber()) {Nan::ThrowTypeError("Argument must be a number");return;}
     // get user arguments
-    uint16_t pinValue = gpio_control.GetGPIOValue(info[0]->NumberValue());
+    uint16_t pinValue = gpio_control.GetGPIOValue(Nan::To<uint32_t>(info[0]).FromJust());
     // return desired pin's value
     info.GetReturnValue().Set(pinValue);
 }
@@ -101,8 +101,8 @@ NAN_METHOD(SetDigital){
     // if argument 1 & 2 are not a number, throw error
     if (!info[0]->IsNumber() && !info[1]->IsNumber()) {Nan::ThrowTypeError("Argument 1 & 2 must be a number");return;}
     // get user arguments
-    int pin = info[0]->NumberValue();
-    int digitalState = info[1]->NumberValue();
+    int pin = Nan::To<int>(info[0]).FromJust();
+    int digitalState = Nan::To<int>(info[1]).FromJust();
 
     // if argument 2 is not 0 (OFF) or 1 (ON), throw error
     if (digitalState != 1 && digitalState != 0){Nan::ThrowTypeError("Argument 2 must be 0 or 1");return;}
