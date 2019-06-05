@@ -19,16 +19,15 @@ NAN_METHOD(Set){
     // if array argument is not given, throw error
     if (!info[0]->IsArray()) {Nan::ThrowTypeError("Argument must be an array");return;}
     
-    // grab array of LED RGBW states
+    // grab array of LEDs objects
     v8::Local<v8::Array> leds = v8::Local<v8::Array>::Cast(info[0]);
 
-    // MATRIX EVERLOOP LOGIC //
-    // for each LED object
+    // read RGBW properties of each LED
     int red, green, blue, white;
     for (uint i = 0; i < leds->Length(); i++) {
         // grab LED object properties
-        v8::Local<v8::Value> jsValue = Nan::Get(leds, i).ToLocalChecked();
-        v8::Local<v8::Object> newLed = Nan::To<v8::Object>(jsValue).ToLocalChecked();
+        v8::Local<v8::Value> readLed = Nan::Get(leds, i).ToLocalChecked();
+        v8::Local<v8::Object> newLed = Nan::To<v8::Object>(readLed).ToLocalChecked();
 
         v8::Local<v8::String> redProp = Nan::New("red").ToLocalChecked();
         v8::Local<v8::String> greenProp = Nan::New("green").ToLocalChecked();
