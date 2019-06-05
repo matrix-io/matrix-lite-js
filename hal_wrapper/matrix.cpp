@@ -5,30 +5,23 @@
 #include "drivers/info.h"
 #include "drivers/sensors/sensors.h"
 
-// Declare bus for MATRIX hardware communication
+// Initialize bus for MATRIX hardware communication
 matrix_hal::MatrixIOBus bus;
-// Initialize MATRIX bus
 bool busReady = bus.Init();
 
-// Module initialization logic
+// Node addon entry point
 NAN_MODULE_INIT(Initialize){
-  // Initialize MATRIX BUS
-  if (!bus.Init()) return Nan::ThrowError(Nan::New("MATRIX HAL BUS: NOT INITIALIZED!").ToLocalChecked());
-    // Export function that returns LED object
+  // Check if MATRIX bus is working properly
+  if (!busReady) return Nan::ThrowError(Nan::New("matrixio_bus not initialized!\nIs MATRIX HAL installed?").ToLocalChecked());
+    // Export functions that return JS objects
     NAN_EXPORT(target, led);
-
-    // Export function that returns GPIO object
     NAN_EXPORT(target, gpio);
-    
-    // Export function that returns Sensor objects
     NAN_EXPORT(target, imu);
     NAN_EXPORT(target, humidity);
     NAN_EXPORT(target, pressure);
     NAN_EXPORT(target, uv);
-
-    // Export function that returns Device Info object
     NAN_EXPORT(target, info);
 }
 
-// Create the module called "addon" and initialize it with `Initialize` function (created with NAN_MODULE_INIT macro)
+// Create a Node module called "addon" and specify the entry point function.
 NODE_MODULE(addon, Initialize);
