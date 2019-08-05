@@ -4,7 +4,6 @@ MATRIX Lite JS is an [npm package](https://www.npmjs.com/package/@matrix-io/matr
  <!-- This is mainly done by creating a Node.js addon for [MATRIX HAL](https://matrix-io.github.io/matrix-documentation/matrix-hal/overview/) which lets you call C++ functions with JavaScript. -->
 
 # Roadmap
-This roadmap is for achieving a basic implementation of the checklist below. **As this package develops, the API will improve and may change.**
 - [x] Leds
 - [x] Sensors
   - [x] IMU
