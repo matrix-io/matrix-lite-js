@@ -14,6 +14,7 @@ MATRIX Lite JS is an [npm package](https://www.npmjs.com/package/@matrix-io/matr
 - [ ] Microphones
   - [ ] Hal Mics
   - [x] Alsa Mics
+- [x] [NFC](https://github.com/matrix-io/matrix-lite-nfc-js) (separate library)
 
 # Installation
 Ensure you have a Raspberry Pi, attached with a MATRIX device, that's flashed with [Raspbian Stretch](https://www.raspberrypi.org/blog/raspbian-stretch/).
