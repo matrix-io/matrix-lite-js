@@ -17,7 +17,7 @@ MATRIX Lite JS is an [npm package](https://www.npmjs.com/package/@matrix-io/matr
 - [x] [NFC](https://github.com/matrix-io/matrix-lite-nfc-js) (separate library)
 
 # Installation
-Ensure you have a Raspberry Pi, attached with a MATRIX device, that's flashed with [Raspbian Stretch](https://www.raspberrypi.org/blog/raspbian-stretch/).
+Ensure you have a Raspberry Pi, attached with a MATRIX device, that's flashed with [Raspbian](https://www.raspberrypi.org/blog/raspbian-stretch/).
 
 ## 1. Install MATRIX HAL
 https://matrix-io.github.io/matrix-documentation/matrix-hal/getting-started/installation-package/
