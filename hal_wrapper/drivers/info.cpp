@@ -3,7 +3,7 @@
 #include "info.h"
 #include <v8.h>
 
-// - Detect if using bus or kernel modules
+// Detect if using bus or kernel modules
 bool isDirectBus = bus.IsDirectBus() ? true : false;
 
 // Get the name of the MATRIX device being used
@@ -25,10 +25,7 @@ NAN_METHOD(info) {
     v8::Local<v8::Object> obj = Nan::New<v8::Object>();
 
     // Set Object Properties //
-    
-    // A bool on if HAL is using Bus or Kernel Modules
     Nan::Set(obj, Nan::New("isDirectBus").ToLocalChecked(), Nan::New(isDirectBus));
-    // String of the attached MATRIX device
     Nan::Set(obj, Nan::New("deviceType").ToLocalChecked(), Nan::New(deviceType).ToLocalChecked());
 
     // Return object
