@@ -11,6 +11,22 @@ NAN_METHOD(isDirectBus){
     info.GetReturnValue().Set(true);
 }
 
+// Get the name of the MATRIX device being used
+NAN_METHOD(deviceType){
+  std::string deviceName;
+
+  if (bus.MatrixName() == matrix_hal::kMatrixCreator)
+    deviceName = "MATRIX Creator";
+
+  else if (bus.MatrixName() == matrix_hal::kMatrixVoice)
+    deviceName = "MATRIX Voice";
+  
+  else
+    deviceName = "DEVICE NOT RECOGNIZED";
+
+  info.GetReturnValue().Set(Nan::New(deviceName).ToLocalChecked());
+}
+
 ///////////////////////////////////////
 // ** EXPORTED DEVICE INFO OBJECT ** //
 NAN_METHOD(info) {
@@ -20,6 +36,9 @@ NAN_METHOD(info) {
     // Set Object Properties //
     Nan::Set(obj, Nan::New("isDirectBus").ToLocalChecked(),
     Nan::GetFunction(Nan::New<v8::FunctionTemplate>(isDirectBus)).ToLocalChecked());
+
+    Nan::Set(obj, Nan::New("deviceType").ToLocalChecked(),
+    Nan::GetFunction(Nan::New<v8::FunctionTemplate>(deviceType)).ToLocalChecked());
 
     // Return object
     info.GetReturnValue().Set(obj);
