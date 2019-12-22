@@ -23,7 +23,7 @@ Ensure you have a Raspberry Pi, attached with a MATRIX device, that's flashed wi
 https://matrix-io.github.io/matrix-documentation/matrix-hal/getting-started/installation-package/
 
 ## 2. Install Node.js & Create A Project
-**Downloads and installs the latest version of Node.js, using [nvm](https://github.com/creationix/nvm) (Node Version Manager)**
+**Download and install the latest version of Node.js, using [nvm](https://github.com/creationix/nvm) (Node Version Manager)**
 ```bash
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 . ~/.bashrc
