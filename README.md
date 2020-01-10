@@ -123,6 +123,17 @@ matrix.gpio.setServoAngle({
 });
 ```
 
+## Info
+```js
+var matrix = require("@matrix-io/matrix-lite");
+
+// A string of the MATRIX device currently attatched
+console.log("The " + matrix.info.deviceType + " is attached to the pi");
+
+// A boolean that's true, if the kernel modules are not installed
+console.log("Are the Kernel Modules installed? " + matrix.info.isDirectBus);
+```
+
 ## Alsa
 ### Microphone
 [npm mic](https://www.npmjs.com/package/mic) is used grab our microphone data from alsa.
