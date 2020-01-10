@@ -11,6 +11,7 @@ MATRIX Lite JS is an [npm package](https://www.npmjs.com/package/@matrix-io/matr
   - [x] Pressure
   - [x] UV
 - [x] GPIO
+- [x] Device Info
 - [ ] Microphones
   - [ ] Hal Mics
   - [x] Alsa Mics
