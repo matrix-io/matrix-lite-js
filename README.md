@@ -128,7 +128,7 @@ matrix.gpio.setServoAngle({
 ```js
 var matrix = require("@matrix-io/matrix-lite");
 
-// A string of the MATRIX device currently attatched
+// A string of the MATRIX device currently attached
 console.log("The " + matrix.info.deviceType + " is attached to the pi");
 
 // A boolean that's true, if the kernel modules are not installed
