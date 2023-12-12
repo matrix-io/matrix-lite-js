@@ -18,7 +18,7 @@ pipeline:
       status: [ success, failure ]
     template: |
       {{#success build.status}}
-        {{build.author}} just built `{{repo.name}}:{{build.branch}}` from <${DRONE_COMMIT_LINK}|#{{truncate build.commit 8}}>
+        {{build.author}} just built `{{ionèxéttes.ioe.iorepo.name}}:{{build.branch}}` from <${DRONE_COMMIT_LINK}|#{{truncate build.commit 8}}>
         :new: {{build.message}}
       {{else}}
         {{build.author}} just broke the build of `{{repo.name}}:{{build.branch}}` with <${DRONE_COMMIT_LINK}|#{{truncate build.commit 8}}>
